@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apfel-Bytes | OCLP iMac Update Guide</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Apfel<span class="green-accent">-Bytes</span></a>
+        </div>
+    </nav>
+
+    <section class="section section-intro text-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 mb-3">Your Guide to a Modern Mac Experience</h1>
+                    <p class="lead">Congratulations on your professionally upgraded iMac! This hub provides everything
+                        you need to know about keeping your machine updated and running perfectly for years to come,
+                        using the powerful OpenCore Legacy Patcher.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="section">
+        <div class="container">
+
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-10">
+                    <div class="content-block content-block--blue">
+                        <h2 class="text-center">Part 1: Preparation & The Golden Rule</h2>
+                        <div class="alert-custom alert-warning-custom mb-4">
+                            <h4>The Golden Rule: NEVER Use Automatic Updates!</h4>
+                            <p class="mb-0">This is the most important rule. The standard "Automatic Updates" feature in
+                                macOS doesn't know about the special OCLP configuration. To prevent issues, we always
+                                use a simple, safe manual update process. Ensure all toggles are OFF in <strong>System
+                                    Settings > General > Software Update > Automatic updates</strong>.</p>
+                        </div>
+                        <div class="guide-card">
+                            <div class="step-number">Safety Net</div>
+                            <h3>Create a Time Machine Backup</h3>
+                            <p>Before any update, create a full backup of your system using Time Machine and an external
+                                hard drive. This is your ultimate "undo button" and safety net, allowing you to restore
+                                your Mac to its exact previous state if anything goes wrong.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-10">
+                    <div class="content-block content-block--green">
+                        <h2 class="text-center">Part 2: The Smart Update Process</h2>
+                        <p class="text-center mb-4">The OpenCore Legacy Patcher (OCLP) is an intelligent application
+                            that often guides you through the update process. The key is to follow its prompts. Here is
+                            the typical workflow:</p>
+
+                        <div class="guide-card">
+                            <div class="step-number">Step 1</div>
+                            <h3>Check for OCLP Prompts & Prepare</h3>
+                            <p>Before you do anything, open the <strong>OpenCore-Patcher</strong> app from your
+                                Applications folder. OCLP will automatically check for updates and prompt you if its own
+                                application or bootloader is out of date. <strong>Always accept these updates
+                                    first.</strong></p>
+                            <p><strong>Pro-Tip:</strong> Sometimes, when you check for a macOS update in System
+                                Settings, OCLP will detect this and proactively prompt you to download necessary
+                                libraries in advance. If you see this prompt, accept it. This makes the final patching
+                                step much faster.</p>
+                        </div>
+
+                        <div class="guide-card">
+                            <div class="step-number">Step 2</div>
+                            <h3>Install the macOS Update</h3>
+                            <p>Once OCLP is up-to-date (or if it didn't prompt you for an update), you can proceed. Go
+                                to <strong>System Settings > General > Software Update</strong> and click "Update Now."
+                                Your iMac will download and install the update, which may take some time and involve
+                                several restarts. This is normal.</p>
+                        </div>
+
+                        <div class="guide-card">
+                            <div class="step-number">Step 3</div>
+                            <h3>Apply Post-Install Root Patches</h3>
+                            <p>This is the final and most important step. After the macOS update is complete, the OCLP
+                                app should <strong>automatically open and prompt you</strong> that "post-install root
+                                patches are required." Simply follow the on-screen instructions to apply them. This
+                                re-enables graphics acceleration, Wi-Fi, and other features. If it doesn't open
+                                automatically, just launch it yourself and click <strong>"Post-Install Root
+                                    Patch."</strong> Reboot when prompted.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <h2 class="text-center">Part 3: Frequently Asked Questions (FAQ)</h2>
+                    <div class="accordion" id="faqAccordion">
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                    What is OCLP, really? Is it a "hack"?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                                data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>It is not a "hack." OCLP is a sophisticated, open-source bootloader developed by
+                                        a reputable community. It acts as a bridge, translating instructions between the
+                                        modern macOS and your iMac's proven hardware. It allows a genuine, unmodified
+                                        version of macOS to run perfectly.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Can I upgrade to major new versions of macOS (e.g., macOS 16 "Tahoe")?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>Yes, absolutely! However, it's crucial <strong>not to upgrade on release
+                                            day.</strong> The OCLP community needs time (usually 2-3 months) to ensure
+                                        the new OS runs perfectly on older hardware. I personally test these major
+                                        upgrades and will give my clients the go-ahead once I've confirmed it's stable
+                                        and reliable.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    What do I do if something goes wrong after an update?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                                data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>Your Time Machine backup is your ultimate safety net. You can boot into macOS
+                                        Recovery (by holding Command+R at startup) and restore your Mac to its exact
+                                        previous state. For minor issues like Wi-Fi not working, simply re-running Step
+                                        3 (Apply Post-Install Root Patches) fixes the problem 99% of the time.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="py-5 mt-5">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2025 Apfel-Bytes. All Rights Reserved. | Expert iMac Refurbishment & Support</p>
+            <p>Based in Kingston upon Thames, England</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+
+</body>
+
+</html>

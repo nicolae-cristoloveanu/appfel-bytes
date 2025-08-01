@@ -1,0 +1,211 @@
+        /*
+        ================================================================================
+        |                                                                              |
+        |           APFEL-BYTES - Custom Apple-Style Theme                           |
+        |                                                                              |
+        ================================================================================
+        */
+
+        :root {
+            --apple-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            --color-text-primary: #1d1d1f;
+            --color-text-secondary: #6e6e73;
+            --color-accent-green: #58A65C;
+            --color-accent-red: #D93025;
+            --color-accent-blue: #0071e3;
+            --color-background-main: #ffffff;
+            --color-background-offwhite: #f5f5f7;
+            --color-border-subtle: #d2d2d7;
+            --border-radius-large: 18px;
+            --border-radius-small: 12px;
+        }
+
+        body {
+            font-family: var(--apple-font);
+            background-color: var(--color-background-main);
+            color: var(--color-text-primary);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* --- Typography --- */
+        h1, .display-4 {
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            font-size: 3.5rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            border-bottom: 1px solid var(--color-border-subtle);
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        h3 {
+             font-weight: 600;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+        }
+
+        /* --- Header & Navigation --- */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.8) !important;
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 0.5px solid var(--color-border-subtle);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        .navbar-brand .green-accent {
+            color: var(--color-accent-green);
+        }
+
+        /* --- Main Content & Sections --- */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-intro {
+            background-color: var(--color-background-offwhite);
+        }
+
+        /* --- Colored Content Blocks --- */
+        .content-block {
+            padding: 3rem;
+            border-radius: var(--border-radius-large);
+            margin-bottom: 3rem;
+        }
+        .content-block--blue {
+            background-color: #e7f5ff;
+        }
+        .content-block--green {
+            background-color: #e8f8f5;
+        }
+
+        /* --- Custom Card Styling --- */
+        .guide-card {
+            background-color: var(--color-background-main);
+            border: 1px solid var(--color-border-subtle);
+            border-radius: var(--border-radius-large);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .guide-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .guide-card .step-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-accent-green);
+            background-color: rgba(88, 166, 92, 0.1);
+            border-radius: var(--border-radius-small);
+            padding: 0.5rem 1rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        
+        /* --- FAQ Accordion Styling --- */
+        .accordion-item {
+            background-color: transparent;
+            border: none;
+            border-bottom: 1px solid var(--color-border-subtle);
+        }
+        
+        .accordion-button {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--color-text-primary);
+        }
+        
+        .accordion-button:not(.collapsed) {
+            background-color: transparent;
+            box-shadow: none;
+        }
+        
+        .accordion-button:focus {
+            box-shadow: none;
+            border-color: transparent;
+        }
+        
+        .accordion-button::after {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%231d1d1f'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+        }
+
+        /* --- Alert Box Styling --- */
+        .alert-custom {
+            border-radius: var(--border-radius-large);
+            padding: 1.5rem;
+        }
+        
+        .alert-warning-custom {
+            background-color: rgba(217, 48, 37, 0.05);
+            border: 1px solid rgba(217, 48, 37, 0.5);
+            color: var(--color-text-primary);
+        }
+        
+        .alert-warning-custom h4 {
+            color: var(--color-accent-red);
+            font-weight: 700;
+        }
+        
+        /* --- Footer --- */
+        footer {
+            background-color: var(--color-background-offwhite);
+            border-top: 1px solid var(--color-border-subtle);
+            color: var(--color-text-secondary);
+        }
+        
+        /*
+        ================================================================================
+        |   Responsive Adjustments (Media Queries)                                     |
+        ================================================================================
+        */
+
+        /* For tablets and smaller devices */
+        @media (max-width: 992px) {
+            h1, .display-4 {
+                font-size: 3rem;
+            }
+            h2 {
+                font-size: 2.25rem;
+            }
+            .section {
+                padding: 60px 0;
+            }
+        }
+
+        /* For mobile devices */
+        @media (max-width: 768px) {
+            h1, .display-4 {
+                font-size: 2.5rem;
+            }
+            h2 {
+                font-size: 2rem;
+            }
+            .content-block {
+                padding: 1.5rem;
+            }
+            .guide-card {
+                padding: 1.5rem;
+            }
+            p {
+                font-size: 1rem;
+            }
+            .lead {
+                font-size: 1.1rem;
+            }
+        }
