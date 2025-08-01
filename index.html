@@ -8,11 +8,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Apfel-Bytes | OCLP iMac Update Guide</title>
 
+    <title>Appfel-Bytes | OCLP iMac Update Guide</title>
+
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- Google Fonts - Inter (Apple-like font) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="assets/css/style.css">
 
 
@@ -20,9 +25,10 @@
 
 <body>
 
+
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="#">Apfel<span class="green-accent">-Bytes</span></a>
+            <a class="navbar-brand" href="#">Appfel<span class="green-accent">-Bytes</span></a>
         </div>
     </nav>
 
@@ -39,8 +45,18 @@
         </div>
     </section>
 
-    <main class="section">
+    <main class="section pt-0">
         <div class="container">
+            <!-- Disclaimer Box -->
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="disclaimer-box text-center">
+                        <p class="mb-0"><strong>Please Note:</strong> This guide is a living document and a work in
+                            progress. More information and tutorials may be added over time. If you have a specific
+                            question that isn't answered here, please feel free to reach out!</p>
+                    </div>
+                </div>
+            </div>
 
             <div class="row justify-content-center mb-5">
                 <div class="col-lg-10">
@@ -56,9 +72,32 @@
                         <div class="guide-card">
                             <div class="step-number">Safety Net</div>
                             <h3>Create a Time Machine Backup</h3>
-                            <p>Before any update, create a full backup of your system using Time Machine and an external
-                                hard drive. This is your ultimate "undo button" and safety net, allowing you to restore
-                                your Mac to its exact previous state if anything goes wrong.</p>
+                            <p>As a professional best practice, I advise all Mac users to maintain a regular backup,
+                                regardless of their machine's make, model, or configuration. Before any system update,
+                                it is essential to create a full backup using Time Machine. This is your ultimate "undo
+                                button" and safety net, allowing you to restore your Mac to its exact previous state if
+                                anything goes wrong.</p>
+                            <h4 class="mt-4">What You'll Need:</h4>
+                            <p>You will need an external hard drive. Any standard USB external drive from brands like
+                                Seagate, Western Digital, or LaCie will work perfectly. For best results, choose a drive
+                                that has **at least the same amount of storage as your iMac's internal drive, or
+                                larger.** For example, if your iMac has a 1TB SSD, use a 1TB or 2TB external drive.</p>
+                            <h4 class="mt-4">How to Set It Up:</h4>
+                            <ol class="fs-6">
+                                <li><strong>Connect the Drive:</strong> Plug your new external hard drive into one of
+                                    your iMac's USB ports.</li>
+                                <li><strong>Format the Drive (if needed):</strong> A pop-up may appear asking if you
+                                    want to use the drive for Time Machine. If so, click "Use as Backup Disk." If not,
+                                    open the "Disk Utility" application, select your external drive, click "Erase," and
+                                    format it as "APFS" or "Mac OS Extended (Journaled)."</li>
+                                <li><strong>Start the First Backup:</strong> Once formatted, go to <strong>System
+                                        Settings > General > Time Machine</strong>. Click "Add Backup Disk," select your
+                                    external drive, and the backup will begin. The first backup can take a few hours, so
+                                    let it run.</li>
+                                <li><strong>Before an Update:</strong> Always ensure your backup is current. Click the
+                                    Time Machine icon in the menu bar (a clock with a circular arrow) and select "Back
+                                    Up Now."</li>
+                            </ol>
                         </div>
                     </div>
                 </div>
@@ -177,15 +216,12 @@
 
     <footer class="py-5 mt-5">
         <div class="container text-center">
-            <p class="mb-0">&copy; 2025 Apfel-Bytes. All Rights Reserved. | Expert iMac Refurbishment & Support</p>
+            <p class="mb-0">&copy; 2025 Appfel-Bytes. All Rights Reserved. | Expert iMac Refurbishment & Support</p>
             <p>Based in Kingston upon Thames, England</p>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-
-
 
 </body>
 
