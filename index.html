@@ -35,6 +35,7 @@
     <!-- Hero Section with Image -->
     <section class="hero-section">
         <div class="hero-image-container">
+            <!-- Make sure the image path is correct for your project -->
             <img src="assets/images/IMG_1128.PNG" alt="iMac Setup" class="hero-image">
             <div class="hero-overlay">
                 <div class="container">
@@ -54,8 +55,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <p class="lead">Congratulations on your professionally upgraded iMac! This hub provides everything
-                        you need to know about keeping your machine updated and running perfectly for years to come,
-                        using the powerful OpenCore Legacy Patcher.</p>
+                        you need to know about keeping your machine updated and running perfectly for years to come.</p>
                 </div>
             </div>
         </div>
@@ -74,16 +74,15 @@
                 </div>
             </div>
 
+            <!-- macOS Update and Upgrade Procedure -->
             <div class="row justify-content-center mb-5">
                 <div class="col-lg-10">
+                    <h2 class="text-center">macOS Update and Upgrade Procedure</h2>
                     <div class="content-block content-block--blue">
-                        <h2 class="text-center">Part 1: Preparation & The Golden Rule</h2>
+                        <h3 class="text-center" style="border: none; margin-bottom: 2rem;">Part 1: Preparation</h3>
                         <div class="alert-custom alert-warning-custom mb-4">
-                            <h4>The Golden Rule: NEVER Use Automatic Updates!</h4>
-                            <p class="mb-0">This is the most important rule. The standard "Automatic Updates" feature in
-                                macOS doesn't know about the special OCLP configuration. To prevent issues, we always
-                                use a simple, safe manual update process. Ensure all toggles are OFF in <strong>System
-                                    Settings > General > Software Update > Automatic updates</strong>.</p>
+                            <h4>An Important Note for OpenCore Users</h4>
+                            <p class="mb-0">The most important rule for a stable system is to **NEVER use Automatic Updates.** The standard macOS updater doesn't know about the special OCLP configuration. To prevent issues, we always use a simple, safe manual update process. Please ensure all toggles are OFF in <strong>System Settings > General > Software Update > Automatic updates</strong>.</p>
                         </div>
                         <div class="guide-card">
                             <div class="step-number">Safety Net</div>
@@ -116,13 +115,8 @@
                             </ol>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="row justify-content-center mb-5">
-                <div class="col-lg-10">
                     <div class="content-block content-block--green">
-                        <h2 class="text-center">Part 2: The Smart Update Process</h2>
+                        <h3 class="text-center" style="border: none; margin-bottom: 2rem;">Part 2: The Smart Update Process</h3>
                         <p class="text-center mb-4">The OpenCore Legacy Patcher (OCLP) is an intelligent application
                             that often guides you through the update process. The key is to follow its prompts. Here is
                             the typical workflow:</p>
@@ -143,31 +137,18 @@
                         <div class="guide-card">
                             <div class="step-number">Step 2</div>
                             <h3>Install the macOS Update</h3>
-                            <p>Once OCLP is up-to-date (or if it didn't prompt you for an update), you can proceed. Go
-                                to <strong>System Settings > General > Software Update</strong> and click "Update Now."
-                                Your iMac will download and install the update, which may take some time and involve
-                                several restarts. This is normal.</p>
+                            <p>Once OCLP is up-to-date, you can proceed. Go to <strong>System Settings > General > Software Update</strong> and click "Update Now." Your iMac will download the official update directly from Apple's servers and begin the installation, which may involve several restarts. This is normal.</p>
                         </div>
 
                         <div class="guide-card">
                             <div class="step-number">Step 3</div>
                             <h3>Apply Post-Install Root Patches</h3>
-                            <p>This is the final and most important step. After the macOS update is complete, the OCLP
-                                app should <strong>automatically open and prompt you</strong> that "post-install root
-                                patches are required." Simply follow the on-screen instructions to apply them. This
-                                re-enables graphics acceleration, Wi-Fi, and other features. If it doesn't open
-                                automatically, just launch it yourself and click <strong>"Post-Install Root
-                                    Patch."</strong> Reboot when prompted.</p>
+                            <p>This is the final and most important step. Each official update from Apple **wipes the custom drivers** needed for things like graphics and Wi-Fi to work on your iMac. This step reinstalls them.</p>
+                            <p>After the macOS update is complete, the OCLP app should <strong>automatically open and prompt you</strong> that "post-install root patches are required." Simply follow the on-screen instructions to apply them. If it doesn't open automatically, just launch it yourself and click <strong>"Post-Install Root Patch."</strong> Reboot when prompted to complete the process.</p>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <h2 class="text-center">Part 3: Frequently Asked Questions (FAQ)</h2>
+                    <h3 class="text-center" style="border: none; margin-bottom: 2rem;">Part 3: Frequently Asked Questions (FAQ)</h3>
                     <div class="accordion" id="faqAccordion">
-
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingOne">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -185,7 +166,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingTwo">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -204,7 +184,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingThree">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -222,7 +201,42 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Dual Boot Guide -->
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-10">
+                    <h2 class="text-center">Dual-Boot Guide (macOS & Windows)</h2>
+                    <div class="content-block content-block--grey">
+                         <p class="text-center mb-4">Your iMac is configured to run both macOS and Windows, giving you the best of both worlds. This guide explains how to switch between them and handle updates.</p>
+                        
+                        <div class="guide-card">
+                            <div class="step-number">Switching</div>
+                            <h3>How to Switch Between macOS and Windows</h3>
+                            <p>Thanks to the OpenCore bootloader, you don't need to hold any keys. The boot selection menu will appear automatically every time you start your iMac.</p>
+                             <ol class="fs-6">
+                                <li><strong>Restart or Turn On Your iMac:</strong> Simply start your machine as you normally would.</li>
+                                <li><strong>Wait for the Boot Picker:</strong> After a moment, you will see the OpenCore boot picker screen, showing icons for macOS and Windows.</li>
+                                <li><strong>Stop the Timer (You have 5 seconds!):</strong> The system will automatically boot into the default OS after a 5-second countdown. To stop this timer and make a choice, simply **press any arrow key** on your keyboard. You can now take your time.</li>
+                                <li><strong>Select and Boot:</strong> Once the timer is stopped, use the left and right arrow keys to highlight the operating system you want to use. When you've made your choice, press the **`Enter`** key or click the icon with your mouse to start up.</li>
+                            </ol>
+                        </div>
 
+                        <div class="guide-card">
+                            <div class="step-number">Updates</div>
+                            <h3>Updating Windows and macOS</h3>
+                            <p><strong>Updating Windows:</strong> You can update Windows normally. Simply go to <strong>Start > Settings > Update & Security > Windows Update</strong> and install any available updates as you would on a standard PC.</p>
+                            
+                            <!-- NEW WINDOWS 11 NOTE -->
+                            <div class="alert-custom alert-info-custom mt-4">
+                                <h5>⚠️ Important Note for Windows 11 Users</h5>
+                                <p class="mb-0" style="font-size: 1rem;">To ensure system stability, it is crucial to manage a specific setting within the Microsoft PowerToys application. Please make sure the <strong>"Awake"</strong> utility is enabled. This prevents the iMac's screen from freezing after the system enters a hibernation state due to inactivity. This setting is pre-configured on my builds, but it's important to be aware of it and ensure it remains active.</p>
+                            </div>
+
+                            <p class="mt-4"><strong>Updating macOS:</strong> This is very important. To update the macOS side of your dual-boot system, you must follow the **exact same procedure** detailed in the "macOS Update and Upgrade Procedure" section above. This ensures the OpenCore Legacy Patcher configuration remains correct.</p>
+                        </div>
                     </div>
                 </div>
             </div>
