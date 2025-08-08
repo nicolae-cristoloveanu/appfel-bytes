@@ -78,6 +78,16 @@
                         <li><a href="#updating-systems" class="side-nav-sublink">Updates</a></li>
                     </ul>
                 </li>
+                <li class="side-nav-item">
+                    <a href="#time-machine-restore" class="side-nav-link">
+                        <span class="nav-icon">⏰</span>
+                        Time Machine Restore
+                    </a>
+                    <ul class="side-nav-submenu">
+                        <li><a href="#restore-methods" class="side-nav-sublink">Restore Methods</a></li>
+                        <li><a href="#restore-warnings" class="side-nav-sublink">Important Warnings</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </nav>
@@ -107,6 +117,12 @@
                     <a href="#dual-boot" class="side-nav-link" data-bs-dismiss="offcanvas">
                         <span class="nav-icon">💻</span>
                         Dual-Boot Guide
+                    </a>
+                </li>
+                <li class="side-nav-item">
+                    <a href="#time-machine-restore" class="side-nav-link" data-bs-dismiss="offcanvas">
+                        <span class="nav-icon">⏰</span>
+                        Time Machine Restore
                     </a>
                 </li>
             </ul>
@@ -349,21 +365,124 @@
                                     This setting is pre-configured on my builds, but it's important to be aware of it
                                     and ensure it remains active.</p>
 
-                                <h6 class="mt-3 mb-2"><strong>Enabling Awake and keeping Screen On
-                                        Indefinitely:</strong></h6>
-                                <ol style="font-size: 0.95rem; margin-bottom: 0;">
-                                    <li><strong>Open PowerToys:</strong> Search for "PowerToys" in the Windows Start menu and open the application.</li>
-                                    <li><strong>Enable Awake.</strong></li>
-                                    <li>Select <strong>"Keep using the selected power plan"</strong> from PowerToys
-                                        settings, <em>-OR-</em> by right-clicking the Awake icon in the system task tray
-                                        and selecting <strong>Mode > On</strong>.</li>
+                                <h6 class="mt-3 mb-2"><strong>Configuring PowerToys Awake Settings:</strong></h6>
+                                <ol style="font-size: 0.95rem; margin-bottom: 1rem;">
+                                    <li><strong>Open PowerToys:</strong> Search for "PowerToys" in the Windows Start menu and open the application.
+                                        <div class="mt-2 mb-3">
+                                            <img src="assets/images/powertoys1.png" alt="PowerToys Awake Option Location" 
+                                                 class="img-fluid rounded border" style="max-width: 100%; height: auto;">
+                                            <small class="text-muted d-block mt-1"><em>PowerToys main interface showing the Awake option in the sidebar</em></small>
+                                        </div>
+                                    </li>
+                                    <li><strong>Navigate to Awake Settings:</strong> Click on "Awake" in the left sidebar to access the power settings.
+                                        <div class="mt-2 mb-3">
+                                            <img src="assets/images/powertoys2.png" alt="Default PowerToys Awake Settings" 
+                                                 class="img-fluid rounded border" style="max-width: 100%; height: auto;">
+                                            <small class="text-muted d-block mt-1"><em>Default Awake settings view</em></small>
+                                        </div>
+                                    </li>
+                                    <li><strong>Enable and Configure Awake:</strong> Toggle the "Enable Awake" switch to ON, then select <strong>"Keep awake indefinitely"</strong> from the dropdown options. Additionally, make sure to enable the <strong>"Keep screen on"</strong> toggle to prevent screen hibernation.
+                                        <div class="mt-2 mb-3">
+                                            <img src="assets/images/powertoys3.png" alt="Properly Configured PowerToys Awake Settings" 
+                                                 class="img-fluid rounded border" style="max-width: 100%; height: auto;">
+                                            <small class="text-muted d-block mt-1"><em>Correct configuration with "Keep awake indefinitely" and "Keep screen on" both enabled</em></small>
+                                        </div>
+                                    </li>
                                 </ol>
+                                <p class="mb-0 mt-2"><strong>Alternative Method:</strong> You can also manage Awake by right-clicking the PowerToys Awake icon in the system task tray and selecting the appropriate mode.</p>
+                                <p class="mb-0 mt-2"><em><strong>Important:</strong> Both "Keep awake indefinitely" and "Keep screen on" options must be enabled to prevent the iMac's screen from freezing during hibernation.</em></p>
                             </div>
 
                             <p class="mt-4"><strong>Updating macOS:</strong> This is very important. To update the macOS
                                 side of your dual-boot system, you must follow the **exact same procedure** detailed in
                                 the "macOS Update and Upgrade Procedure" section above. This ensures the OpenCore Legacy
                                 Patcher configuration remains correct.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Time Machine Restore Guide -->
+            <div class="row justify-content-center mb-5" id="time-machine-restore">
+                <div class="col-lg-10">
+                    <h2 class="text-center">Time Machine Restore Guide</h2>
+                    <div class="content-block content-block--blue">
+                        <p class="text-center mb-4">Restoring from Time Machine backups on OCLP systems requires special procedures to avoid issues. This guide covers the two recommended methods depending on your restoration needs.</p>
+
+                        <!-- Important Warnings Section -->
+                        <div class="alert-custom alert-warning-custom mb-4" id="restore-warnings">
+                            <h4>⚠️ Critical Information Before Restoring</h4>
+                            <ul class="mb-0">
+                                <li><strong>Root Patches Impact:</strong> OCLP root patches can interfere with Time Machine restoration and may cause kernel panics.</li>
+                                <li><strong>Sequoia Warning:</strong> Time Machine on macOS Sequoia may not function properly even after uninstalling root patches, potentially causing restore loops.</li>
+                                <li><strong>Method Availability:</strong> Full restoration (Method 2) is only supported on Monterey and newer. Big Sur does not support snapshot reversion.</li>
+                                <li><strong>Network Drives:</strong> If your backup is on a network drive, ensure Ethernet connectivity as WiFi may be unavailable during restoration.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Migration Assistant Image -->
+                        <div class="text-center mb-4">
+                            <img src="assets/images/timemachine-restore.png" alt="Migration Assistant Transfer Options" 
+                                 class="img-fluid rounded border" style="max-width: 100%; height: auto;">
+                            <small class="text-muted d-block mt-2"><em>Migration Assistant showing transfer options - uncheck "Other files and folders" for Method 1</em></small>
+                        </div>
+
+                        <div id="restore-methods">
+                            <div class="guide-card">
+                                <div class="step-number">Method 1</div>
+                                <h3>Partial Restore (With Root Patches Installed)</h3>
+                                <p><strong>Best for:</strong> Quick restoration of user profile, applications, and main settings when you don't need a complete system restore.</p>
+                                
+                                <div class="alert-custom alert-info-custom mb-3">
+                                    <h5>⚠️ Limitation</h5>
+                                    <p class="mb-0">This method may not restore folders other than "Desktop", "Documents", "Applications", and other main profile folders. For a complete restore, use Method 2.</p>
+                                </div>
+
+                                <h4 class="mt-4">Steps:</h4>
+                                <ol class="fs-6">
+                                    <li><strong>Start Restoration:</strong> Begin Time Machine restore either in Setup Assistant (first-time setup) or Migration Assistant.</li>
+                                    <li><strong>Configure Transfer Options:</strong> When prompted to select information to transfer, <strong>uncheck "Other files and folders"</strong> as shown in the screenshot above.</li>
+                                    <li><strong>Complete Transfer:</strong> Proceed with the restoration process. Your user profile, applications, and main settings will be restored.</li>
+                                </ol>
+                                <p class="mt-3"><em>This method is faster and works with root patches installed, but provides a partial restoration only.</em></p>
+                            </div>
+
+                            <div class="guide-card">
+                                <div class="step-number">Method 2</div>
+                                <h3>Full Restore (Without Root Patches)</h3>
+                                <p><strong>Best for:</strong> Complete system restoration when you need everything restored exactly as it was, including all files and system configurations.</p>
+                                
+                                <div class="alert-custom alert-info-custom mb-3">
+                                    <h5>📋 Requirements</h5>
+                                    <p class="mb-0">Requires macOS Monterey or newer. Your Mac will temporarily run slower with reduced functionality during the process.</p>
+                                </div>
+
+                                <h4 class="mt-4">Steps:</h4>
+                                <ol class="fs-6">
+                                    <li><strong>Initial Setup:</strong> During first-time Setup Assistant, do NOT restore the backup. Complete all settings as if starting fresh and reach the desktop.</li>
+                                    <li><strong>Revert Root Patches:</strong> Open the OCLP application and navigate to "Post Install Volume Patches" section. Click to revert/uninstall the root patches.</li>
+                                    <li><strong>Restart System:</strong> Restart your iMac. 
+                                        <div class="alert-custom alert-warning-custom mt-2 mb-2">
+                                            <p class="mb-0" style="font-size: 0.9rem;"><strong>Expected Behavior:</strong> Your Mac will feel slow due to lack of graphics drivers, resolution may be incorrect, and WiFi will likely be unavailable. This is normal.</p>
+                                        </div>
+                                    </li>
+                                    <li><strong>Run Migration Assistant:</strong> Once logged in, launch Migration Assistant and proceed with the complete restoration process.</li>
+                                    <li><strong>Reinstall Root Patches:</strong> After restoration is complete, reopen the OCLP application and reinstall the root patches to restore full functionality.</li>
+                                    <li><strong>Final Restart:</strong> Restart once more to complete the process with full OCLP functionality restored.</li>
+                                </ol>
+                                <p class="mt-3"><em>This method provides complete restoration but requires temporary removal and reinstallation of root patches.</em></p>
+                            </div>
+
+                            <div class="guide-card">
+                                <div class="step-number">Troubleshooting</div>
+                                <h3>Common Issues and Solutions</h3>
+                                <ul class="fs-6">
+                                    <li><strong>Sequoia Restore Loops:</strong> If you encounter "Migration Finished" loops on Sequoia, restore on an older macOS version first, then upgrade to Sequoia afterward.</li>
+                                    <li><strong>Network Drive Access:</strong> If your backup is on a network drive and WiFi is unavailable during Method 2, connect via Ethernet cable.</li>
+                                    <li><strong>Kernel Panics:</strong> If you experience crashes during restoration, ensure you're using the correct method for your macOS version and that root patches are properly handled.</li>
+                                    <li><strong>Incomplete Restoration:</strong> If Method 1 doesn't restore everything you need, use Method 2 for a complete restoration.</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>

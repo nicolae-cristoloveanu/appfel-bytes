@@ -398,6 +398,17 @@
             margin-bottom: 40px;
         }
         
+        /* --- Guide Images --- */
+        .guide-card img, .alert-custom img {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .guide-card img:hover, .alert-custom img:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+        
         /* --- Footer --- */
         footer {
             background-color: var(--color-background-offwhite);
