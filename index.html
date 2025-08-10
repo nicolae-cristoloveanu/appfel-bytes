@@ -29,6 +29,15 @@
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
             <a class="navbar-brand" href="#">Appfel<span class="green-accent">-Bytes</span></a>
+            
+            <!-- macOS Version Info (hidden on mobile) -->
+            <div class="d-none d-lg-block">
+                <span class="navbar-text">
+                    <span class="fw-bold text-primary fs-6">Current macOS:</span> 
+                    <span class="fw-semibold">Sequoia 15.6</span>
+                </span>
+            </div>
+            
             <!-- Mobile menu toggle for side nav -->
             <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#sideNavigation" aria-controls="sideNavigation">
@@ -407,7 +416,7 @@
                 <div class="col-lg-10">
                     <h2 class="text-center">Time Machine Restore Guide</h2>
                     <div class="content-block content-block--blue">
-                        <p class="text-center mb-4">Restoring from Time Machine backups on OCLP systems requires special procedures to avoid issues. This guide covers the two recommended methods depending on your restoration needs.</p>
+                        <p class="text-center mb-4">Restoring from Time Machine backups on OCLP systems requires a special procedure to ensure complete restoration without issues. This guide covers the recommended method for full system restoration.</p>
 
                         <!-- Important Warnings Section -->
                         <div class="alert-custom alert-warning-custom mb-4" id="restore-warnings">
@@ -415,7 +424,7 @@
                             <ul class="mb-0">
                                 <li><strong>Root Patches Impact:</strong> OCLP root patches can interfere with Time Machine restoration and may cause kernel panics.</li>
                                 <li><strong>Sequoia Warning:</strong> Time Machine on macOS Sequoia may not function properly even after uninstalling root patches, potentially causing restore loops.</li>
-                                <li><strong>Method Availability:</strong> Full restoration (Method 2) is only supported on Monterey and newer. Big Sur does not support snapshot reversion.</li>
+                                <li><strong>System Requirements:</strong> Full restoration is only supported on Monterey and newer. Big Sur does not support snapshot reversion.</li>
                                 <li><strong>Network Drives:</strong> If your backup is on a network drive, ensure Ethernet connectivity as WiFi may be unavailable during restoration.</li>
                             </ul>
                         </div>
@@ -424,33 +433,14 @@
                         <div class="text-center mb-4">
                             <img src="assets/images/timemachine-restore.png" alt="Migration Assistant Transfer Options" 
                                  class="img-fluid rounded border" style="max-width: 100%; height: auto;">
-                            <small class="text-muted d-block mt-2"><em>Migration Assistant showing transfer options - uncheck "Other files and folders" for Method 1</em></small>
+                            <small class="text-muted d-block mt-2"><em>Migration Assistant showing transfer options during the restoration process</em></small>
                         </div>
 
                         <div id="restore-methods">
                             <div class="guide-card">
-                                <div class="step-number">Method 1</div>
-                                <h3>Partial Restore (With Root Patches Installed)</h3>
-                                <p><strong>Best for:</strong> Quick restoration of user profile, applications, and main settings when you don't need a complete system restore.</p>
-                                
-                                <div class="alert-custom alert-info-custom mb-3">
-                                    <h5>⚠️ Limitation</h5>
-                                    <p class="mb-0">This method may not restore folders other than "Desktop", "Documents", "Applications", and other main profile folders. For a complete restore, use Method 2.</p>
-                                </div>
-
-                                <h4 class="mt-4">Steps:</h4>
-                                <ol class="fs-6">
-                                    <li><strong>Start Restoration:</strong> Begin Time Machine restore either in Setup Assistant (first-time setup) or Migration Assistant.</li>
-                                    <li><strong>Configure Transfer Options:</strong> When prompted to select information to transfer, <strong>uncheck "Other files and folders"</strong> as shown in the screenshot above.</li>
-                                    <li><strong>Complete Transfer:</strong> Proceed with the restoration process. Your user profile, applications, and main settings will be restored.</li>
-                                </ol>
-                                <p class="mt-3"><em>This method is faster and works with root patches installed, but provides a partial restoration only.</em></p>
-                            </div>
-
-                            <div class="guide-card">
-                                <div class="step-number">Method 2</div>
-                                <h3>Full Restore (Without Root Patches)</h3>
-                                <p><strong>Best for:</strong> Complete system restoration when you need everything restored exactly as it was, including all files and system configurations.</p>
+                                <div class="step-number">Process</div>
+                                <h3>Complete Time Machine Restoration</h3>
+                                <p>This method provides complete system restoration, restoring everything exactly as it was, including all files and system configurations.</p>
                                 
                                 <div class="alert-custom alert-info-custom mb-3">
                                     <h5>📋 Requirements</h5>
@@ -460,13 +450,13 @@
                                 <h4 class="mt-4">Steps:</h4>
                                 <ol class="fs-6">
                                     <li><strong>Initial Setup:</strong> During first-time Setup Assistant, do NOT restore the backup. Complete all settings as if starting fresh and reach the desktop.</li>
-                                    <li><strong>Revert Root Patches:</strong> Open the OCLP application and navigate to "Post Install Volume Patches" section. Click to revert/uninstall the root patches.</li>
-                                    <li><strong>Restart System:</strong> Restart your iMac. 
+                                    <li><strong>Remove Root Patches from System:</strong> Open the OCLP application and navigate to "Post Install Volume Patches" section. Click to revert/uninstall the root patches. This completely removes all OCLP modifications from the system.</li>
+                                    <li><strong>Mandatory Restart:</strong> Restart your iMac to ensure the root patch removal takes full effect. 
                                         <div class="alert-custom alert-warning-custom mt-2 mb-2">
-                                            <p class="mb-0" style="font-size: 0.9rem;"><strong>Expected Behavior:</strong> Your Mac will feel slow due to lack of graphics drivers, resolution may be incorrect, and WiFi will likely be unavailable. This is normal.</p>
+                                            <p class="mb-0" style="font-size: 0.9rem;"><strong>Expected Behavior:</strong> Your Mac will feel slow due to lack of graphics drivers, resolution may be incorrect, and WiFi will likely be unavailable. This is normal and expected.</p>
                                         </div>
                                     </li>
-                                    <li><strong>Run Migration Assistant:</strong> Once logged in, launch Migration Assistant and proceed with the complete restoration process.</li>
+                                    <li><strong>Use Migration Assistant Only After Restart:</strong> Once logged back in after the restart, launch Migration Assistant and proceed with the complete restoration process. Do not attempt to use Migration Assistant before completing the restart.</li>
                                     <li><strong>Reinstall Root Patches:</strong> After restoration is complete, reopen the OCLP application and reinstall the root patches to restore full functionality.</li>
                                     <li><strong>Final Restart:</strong> Restart once more to complete the process with full OCLP functionality restored.</li>
                                 </ol>
@@ -478,9 +468,9 @@
                                 <h3>Common Issues and Solutions</h3>
                                 <ul class="fs-6">
                                     <li><strong>Sequoia Restore Loops:</strong> If you encounter "Migration Finished" loops on Sequoia, restore on an older macOS version first, then upgrade to Sequoia afterward.</li>
-                                    <li><strong>Network Drive Access:</strong> If your backup is on a network drive and WiFi is unavailable during Method 2, connect via Ethernet cable.</li>
+                                    <li><strong>Network Drive Access:</strong> If your backup is on a network drive and WiFi is unavailable during the process, connect via Ethernet cable.</li>
                                     <li><strong>Kernel Panics:</strong> If you experience crashes during restoration, ensure you're using the correct method for your macOS version and that root patches are properly handled.</li>
-                                    <li><strong>Incomplete Restoration:</strong> If Method 1 doesn't restore everything you need, use Method 2 for a complete restoration.</li>
+                                    <li><strong>Restoration Issues:</strong> If the restoration process fails, ensure root patches are completely reverted before attempting again.</li>
                                 </ul>
                             </div>
                         </div>
