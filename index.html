@@ -29,15 +29,22 @@
     <nav class="navbar navbar-expand-lg sticky-top">
         <div class="container">
             <a class="navbar-brand" href="#">Appfel<span class="green-accent">-Bytes</span></a>
-            
+
             <!-- macOS Version Info (hidden on mobile) -->
             <div class="d-none d-lg-block">
                 <span class="navbar-text">
-                    <span class="fw-bold text-primary fs-6">Current macOS:</span> 
-                    <span class="fw-semibold">Sequoia 15.6</span>
+                    <span class="fw-bold text-primary fs-6">OLCP Patcher Version (latest):</span>
+                    <span class="fw-semibold">2.4.1</span>
                 </span>
             </div>
-            
+
+            <div class="d-none d-lg-block">
+                <span class="navbar-text">
+                    <span class="fw-bold text-primary fs-6">Current macOS:</span>
+                    <span class="fw-semibold">Sequoia 15.6.1</span>
+                </span>
+            </div>
+
             <!-- Mobile menu toggle for side nav -->
             <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#sideNavigation" aria-controls="sideNavigation">
@@ -88,6 +95,16 @@
                     </ul>
                 </li>
                 <li class="side-nav-item">
+                    <a href="#user-account-management" class="side-nav-link">
+                        <span class="nav-icon">👤</span>
+                        User Account Management
+                    </a>
+                    <ul class="side-nav-submenu">
+                        <li><a href="#account-setup" class="side-nav-sublink">Account Setup</a></li>
+                        <li><a href="#account-security" class="side-nav-sublink">Security</a></li>
+                    </ul>
+                </li>
+                <li class="side-nav-item">
                     <a href="#time-machine-restore" class="side-nav-link">
                         <span class="nav-icon">⏰</span>
                         Time Machine Restore
@@ -129,6 +146,12 @@
                     </a>
                 </li>
                 <li class="side-nav-item">
+                    <a href="#user-account-management" class="side-nav-link" data-bs-dismiss="offcanvas">
+                        <span class="nav-icon">👤</span>
+                        User Account Management
+                    </a>
+                </li>
+                <li class="side-nav-item">
                     <a href="#time-machine-restore" class="side-nav-link" data-bs-dismiss="offcanvas">
                         <span class="nav-icon">⏰</span>
                         Time Machine Restore
@@ -161,8 +184,10 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
-                        <p class="lead">Congratulations on your professionally upgraded iMac! This hub provides everything
-                            you need to know about keeping your machine updated and running perfectly for years to come.</p>
+                        <p class="lead">Congratulations on your professionally upgraded iMac! This hub provides
+                            everything
+                            you need to know about keeping your machine updated and running perfectly for years to come.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -170,315 +195,551 @@
 
         <div class="section pt-0">
             <div class="container">
-            <!-- Disclaimer Box -->
-            <div class="row justify-content-center">
-                <div class="col-lg-10">
-                    <div class="disclaimer-box text-center">
-                        <p class="mb-0"><strong>Please Note:</strong> This guide is a living document and a work in
-                            progress. More information and tutorials may be added over time. If you have a specific
-                            question that isn't answered here, please feel free to reach out!</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- macOS Update Management Guide -->
-            <div class="row justify-content-center mb-5" id="macos-update">
-                <div class="col-lg-10">
-                    <h2 class="text-center">macOS Update Management Guide</h2>
-                    <div class="content-block content-block--blue" id="preparation">
-                        <h3 class="text-center" style="border: none; margin-bottom: 2rem;">Part 1: Preparation</h3>
-                        <div class="alert-custom alert-warning-custom mb-4">
-                            <h4>An Important Note for OpenCore Users</h4>
-                            <p class="mb-0">The most important rule for a stable system is to **NEVER use Automatic
-                                Updates.** The standard macOS updater doesn't know about the special OCLP configuration.
-                                To prevent issues, we always use a simple, safe manual update process. Please ensure all
-                                toggles are OFF in <strong>System Settings > General > Software Update > Automatic
-                                    updates</strong>.</p>
-                        </div>
-                        <div class="guide-card">
-                            <div class="step-number">Safety Net</div>
-                            <h3>Create a Time Machine Backup</h3>
-                            <p>As a professional best practice, I advise all Mac users to maintain a regular backup,
-                                regardless of their machine's make, model, or configuration. Before any system update,
-                                it is essential to create a full backup using Time Machine. This is your ultimate "undo
-                                button" and safety net, allowing you to restore your Mac to its exact previous state if
-                                anything goes wrong.</p>
-                            <h4 class="mt-4">What You'll Need:</h4>
-                            <p>You will need an external hard drive. Any standard USB external drive from brands like
-                                Seagate, Western Digital, or LaCie will work perfectly. For best results, choose a drive
-                                that has **at least the same amount of storage as your iMac's internal drive, or
-                                larger.** For example, if your iMac has a 1TB SSD, use a 1TB or 2TB external drive.</p>
-                            <h4 class="mt-4">How to Set It Up:</h4>
-                            <ol class="fs-6">
-                                <li><strong>Connect the Drive:</strong> Plug your new external hard drive into one of
-                                    your iMac's USB ports.</li>
-                                <li><strong>Format the Drive (if needed):</strong> A pop-up may appear asking if you
-                                    want to use the drive for Time Machine. If so, click "Use as Backup Disk." If not,
-                                    open the "Disk Utility" application, select your external drive, click "Erase," and
-                                    format it as "APFS" or "Mac OS Extended (Journaled)."</li>
-                                <li><strong>Start the First Backup:</strong> Once formatted, go to <strong>System
-                                        Settings > General > Time Machine</strong>. Click "Add Backup Disk," select your
-                                    external drive, and the backup will begin. The first backup can take a few hours, so
-                                    let it run.</li>
-                                <li><strong>Before an Update:</strong> Always ensure your backup is current. Click the
-                                    Time Machine icon in the menu bar (a clock with a circular arrow) and select "Back
-                                    Up Now."</li>
-                            </ol>
-                        </div>
-                    </div>
-                    <div class="content-block content-block--green" id="update-process">
-                        <h3 class="text-center" style="border: none; margin-bottom: 2rem;">Part 2: The Smart Update
-                            Process</h3>
-                        <p class="text-center mb-4">The OpenCore Legacy Patcher (OCLP) is an intelligent application
-                            that often guides you through the update process. The key is to follow its prompts. Here is
-                            the typical workflow:</p>
-
-                        <div class="guide-card">
-                            <div class="step-number">Step 1</div>
-                            <h3>Check for OCLP Prompts & Prepare</h3>
-                            <p>Before you do anything, open the <strong>OpenCore-Patcher</strong> app from your
-                                Applications folder. OCLP will automatically check for updates and prompt you if its own
-                                application or bootloader is out of date. <strong>Always accept these updates
-                                    first.</strong></p>
-                            <p><strong>Pro-Tip:</strong> Sometimes, when you check for a macOS update in System
-                                Settings, OCLP will detect this and proactively prompt you to download necessary
-                                libraries in advance. If you see this prompt, accept it. This makes the final patching
-                                step much faster.</p>
-                        </div>
-
-                        <div class="guide-card">
-                            <div class="step-number">Step 2</div>
-                            <h3>Install the macOS Update</h3>
-                            <p>Once OCLP is up-to-date, you can proceed. Go to <strong>System Settings > General >
-                                    Software Update</strong> and click "Update Now." Your iMac will download the
-                                official update directly from Apple's servers and begin the installation, which may
-                                involve several restarts. This is normal.</p>
-                        </div>
-
-                        <div class="guide-card">
-                            <div class="step-number">Step 3</div>
-                            <h3>Apply Post-Install Root Patches</h3>
-                            <p>This is the final and most important step. Each official update from Apple **wipes the
-                                custom drivers** needed for things like graphics and Wi-Fi to work on your iMac. This
-                                step reinstalls them.</p>
-                            <p>After the macOS update is complete, the OCLP app should <strong>automatically open and
-                                    prompt you</strong> that "post-install root patches are required." Simply follow the
-                                on-screen instructions to apply them. If it doesn't open automatically, just launch it
-                                yourself and click <strong>"Post-Install Root Patch."</strong> Reboot when prompted to
-                                complete the process.</p>
-                        </div>
-                    </div>
-                    <h3 class="text-center" style="border: none; margin-bottom: 2rem;" id="faq">Part 3: Frequently Asked
-                        Questions (FAQ)</h3>
-                    <div class="accordion" id="faqAccordion">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingOne">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                    What is OCLP, really? Is it a "hack"?
-                                </button>
-                            </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
-                                data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
-                                    <p>It is not a "hack." OCLP is a sophisticated, open-source bootloader developed by
-                                        a reputable community. It acts as a bridge, translating instructions between the
-                                        modern macOS and your iMac's proven hardware. It allows a genuine, unmodified
-                                        version of macOS to run perfectly.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingTwo">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Can I upgrade to major new versions of macOS (e.g., macOS 16 "Tahoe")?
-                                </button>
-                            </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                                data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
-                                    <p>Yes, absolutely! However, it's crucial <strong>not to upgrade on release
-                                            day.</strong> The OCLP community needs time (usually 2-3 months) to ensure
-                                        the new OS runs perfectly on older hardware. I personally test these major
-                                        upgrades and will give my clients the go-ahead once I've confirmed it's stable
-                                        and reliable.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="headingThree">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    What do I do if something goes wrong after an update?
-                                </button>
-                            </h2>
-                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                                data-bs-parent="#faqAccordion">
-                                <div class="accordion-body">
-                                    <p>Your Time Machine backup is your ultimate safety net. You can boot into macOS
-                                        Recovery (by holding Command+R at startup) and restore your Mac to its exact
-                                        previous state. For minor issues like Wi-Fi not working, simply re-running Step
-                                        3 (Apply Post-Install Root Patches) fixes the problem 99% of the time.</p>
-                                </div>
-                            </div>
+                <!-- Disclaimer Box -->
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="disclaimer-box text-center">
+                            <p class="mb-0"><strong>Please Note:</strong> This guide is a living document and a work in
+                                progress. More information and tutorials may be added over time. If you have a specific
+                                question that isn't answered here, please feel free to reach out!</p>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Dual Boot Management Guide -->
-            <div class="row justify-content-center mb-5" id="dual-boot">
-                <div class="col-lg-10">
-                    <h2 class="text-center">Dual Boot Management Guide</h2>
-                    <div class="content-block content-block--grey">
-                        <p class="text-center mb-4">Your iMac is configured to run both macOS and Windows, giving you
-                            the best of both worlds. This guide explains how to switch between them and handle updates.
-                        </p>
-
-                        <div class="guide-card" id="switching-os">
-                            <div class="step-number">Switching</div>
-                            <h3>How to Switch Between macOS and Windows</h3>
-                            <p>Thanks to the OpenCore bootloader, you don't need to hold any keys. The boot selection
-                                menu will appear automatically every time you start your iMac.</p>
-                            <ol class="fs-6">
-                                <li><strong>Restart or Turn On Your iMac:</strong> Simply start your machine as you
-                                    normally would.</li>
-                                <li><strong>Wait for the Boot Picker:</strong> After a moment, you will see the OpenCore
-                                    boot picker screen, showing icons for macOS and Windows.</li>
-                                <li><strong>Stop the Timer (You have 5 seconds!):</strong> The system will automatically
-                                    boot into the default OS after a 5-second countdown. To stop this timer and make a
-                                    choice, simply **press any arrow key** on your keyboard. You can now take your time.
-                                </li>
-                                <li><strong>Select and Boot:</strong> Once the timer is stopped, use the left and right
-                                    arrow keys to highlight the operating system you want to use. When you've made your
-                                    choice, press the **`Enter`** key or click the icon with your mouse to start up.
-                                </li>
-                            </ol>
-                        </div>
-
-                        <div class="guide-card" id="updating-systems">
-                            <div class="step-number">Updates</div>
-                            <h3>Updating Windows and macOS</h3>
-                            <p><strong>Updating Windows:</strong> You can update Windows normally. Simply go to
-                                <strong>Start > Settings > Update & Security > Windows Update</strong> and install any
-                                available updates as you would on a standard PC.</p>
-
-                            <!-- NEW WINDOWS 11 NOTE -->
-                            <div class="alert-custom alert-info-custom mt-4">
-                                <h5>⚠️ Important Note for Windows 11 Users</h5>
-                                <p class="mb-0" style="font-size: 1rem;">To ensure system stability, it is crucial to
-                                    manage a specific setting within the Microsoft PowerToys application. Please make
-                                    sure the <strong>"Awake"</strong> utility is enabled. This prevents the iMac's
-                                    screen from freezing after the system enters a hibernation state due to inactivity.
-                                    This setting is pre-configured on my builds, but it's important to be aware of it
-                                    and ensure it remains active.</p>
-
-                                <h6 class="mt-3 mb-2"><strong>Configuring PowerToys Awake Settings:</strong></h6>
-                                <ol style="font-size: 0.95rem; margin-bottom: 1rem;">
-                                    <li><strong>Open PowerToys:</strong> Search for "PowerToys" in the Windows Start menu and open the application.
-                                        <div class="mt-2 mb-3">
-                                            <img src="assets/images/powertoys1.png" alt="PowerToys Awake Option Location" 
-                                                 class="img-fluid rounded border" style="max-width: 100%; height: auto;">
-                                            <small class="text-muted d-block mt-1"><em>PowerToys main interface showing the Awake option in the sidebar</em></small>
-                                        </div>
-                                    </li>
-                                    <li><strong>Navigate to Awake Settings:</strong> Click on "Awake" in the left sidebar to access the power settings.
-                                        <div class="mt-2 mb-3">
-                                            <img src="assets/images/powertoys2.png" alt="Default PowerToys Awake Settings" 
-                                                 class="img-fluid rounded border" style="max-width: 100%; height: auto;">
-                                            <small class="text-muted d-block mt-1"><em>Default Awake settings view</em></small>
-                                        </div>
-                                    </li>
-                                    <li><strong>Enable and Configure Awake:</strong> Toggle the "Enable Awake" switch to ON, then select <strong>"Keep awake indefinitely"</strong> from the dropdown options. Additionally, make sure to enable the <strong>"Keep screen on"</strong> toggle to prevent screen hibernation.
-                                        <div class="mt-2 mb-3">
-                                            <img src="assets/images/powertoys3.png" alt="Properly Configured PowerToys Awake Settings" 
-                                                 class="img-fluid rounded border" style="max-width: 100%; height: auto;">
-                                            <small class="text-muted d-block mt-1"><em>Correct configuration with "Keep awake indefinitely" and "Keep screen on" both enabled</em></small>
-                                        </div>
-                                    </li>
-                                </ol>
-                                <p class="mb-0 mt-2"><strong>Alternative Method:</strong> You can also manage Awake by right-clicking the PowerToys Awake icon in the system task tray and selecting the appropriate mode.</p>
-                                <p class="mb-0 mt-2"><em><strong>Important:</strong> Both "Keep awake indefinitely" and "Keep screen on" options must be enabled to prevent the iMac's screen from freezing during hibernation.</em></p>
+                <!-- macOS Update Management Guide -->
+                <div class="row justify-content-center mb-5" id="macos-update">
+                    <div class="col-lg-10">
+                        <h2 class="text-center">macOS Update Management Guide</h2>
+                        <div class="content-block content-block--blue" id="preparation">
+                            <h3 class="text-center" style="border: none; margin-bottom: 2rem;">Part 1: Preparation</h3>
+                            <div class="alert-custom alert-warning-custom mb-4">
+                                <h4>An Important Note for OpenCore Users</h4>
+                                <p class="mb-0">The most important rule for a stable system is to **NEVER use Automatic
+                                    Updates.** The standard macOS updater doesn't know about the special OCLP
+                                    configuration.
+                                    To prevent issues, we always use a simple, safe manual update process. Please ensure
+                                    all
+                                    toggles are OFF in <strong>System Settings > General > Software Update > Automatic
+                                        updates</strong>.</p>
                             </div>
-
-                            <p class="mt-4"><strong>Updating macOS:</strong> This is very important. To update the macOS
-                                side of your dual-boot system, you must follow the **exact same procedure** detailed in
-                                the "macOS Update and Upgrade Procedure" section above. This ensures the OpenCore Legacy
-                                Patcher configuration remains correct.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Time Machine Restore Guide -->
-            <div class="row justify-content-center mb-5" id="time-machine-restore">
-                <div class="col-lg-10">
-                    <h2 class="text-center">Time Machine Restore Guide</h2>
-                    <div class="content-block content-block--blue">
-                        <p class="text-center mb-4">Restoring from Time Machine backups on OCLP systems requires a special procedure to ensure complete restoration without issues. This guide covers the recommended method for full system restoration.</p>
-
-                        <!-- Important Warnings Section -->
-                        <div class="alert-custom alert-warning-custom mb-4" id="restore-warnings">
-                            <h4>⚠️ Critical Information Before Restoring</h4>
-                            <ul class="mb-0">
-                                <li><strong>Root Patches Impact:</strong> OCLP root patches can interfere with Time Machine restoration and may cause kernel panics.</li>
-                                <li><strong>Sequoia Warning:</strong> Time Machine on macOS Sequoia may not function properly even after uninstalling root patches, potentially causing restore loops.</li>
-                                <li><strong>System Requirements:</strong> Full restoration is only supported on Monterey and newer. Big Sur does not support snapshot reversion.</li>
-                                <li><strong>Network Drives:</strong> If your backup is on a network drive, ensure Ethernet connectivity as WiFi may be unavailable during restoration.</li>
-                            </ul>
-                        </div>
-
-                        <!-- Migration Assistant Image -->
-                        <div class="text-center mb-4">
-                            <img src="assets/images/timemachine-restore.png" alt="Migration Assistant Transfer Options" 
-                                 class="img-fluid rounded border" style="max-width: 100%; height: auto;">
-                            <small class="text-muted d-block mt-2"><em>Migration Assistant showing transfer options during the restoration process</em></small>
-                        </div>
-
-                        <div id="restore-methods">
                             <div class="guide-card">
-                                <div class="step-number">Process</div>
-                                <h3>Complete Time Machine Restoration</h3>
-                                <p>This method provides complete system restoration, restoring everything exactly as it was, including all files and system configurations.</p>
-                                
-                                <div class="alert-custom alert-info-custom mb-3">
-                                    <h5>📋 Requirements</h5>
-                                    <p class="mb-0">Requires macOS Monterey or newer. Your Mac will temporarily run slower with reduced functionality during the process.</p>
-                                </div>
-
-                                <h4 class="mt-4">Steps:</h4>
+                                <div class="step-number">Safety Net</div>
+                                <h3>Create a Time Machine Backup</h3>
+                                <p>As a professional best practice, I advise all Mac users to maintain a regular backup,
+                                    regardless of their machine's make, model, or configuration. Before any system
+                                    update,
+                                    it is essential to create a full backup using Time Machine. This is your ultimate
+                                    "undo
+                                    button" and safety net, allowing you to restore your Mac to its exact previous state
+                                    if
+                                    anything goes wrong.</p>
+                                <h4 class="mt-4">What You'll Need:</h4>
+                                <p>You will need an external hard drive. Any standard USB external drive from brands
+                                    like
+                                    Seagate, Western Digital, or LaCie will work perfectly. For best results, choose a
+                                    drive
+                                    that has **at least the same amount of storage as your iMac's internal drive, or
+                                    larger.** For example, if your iMac has a 1TB SSD, use a 1TB or 2TB external drive.
+                                </p>
+                                <h4 class="mt-4">How to Set It Up:</h4>
                                 <ol class="fs-6">
-                                    <li><strong>Initial Setup:</strong> During first-time Setup Assistant, do NOT restore the backup. Complete all settings as if starting fresh and reach the desktop.</li>
-                                    <li><strong>Remove Root Patches from System:</strong> Open the OCLP application and navigate to "Post Install Volume Patches" section. Click to revert/uninstall the root patches. This completely removes all OCLP modifications from the system.</li>
-                                    <li><strong>Mandatory Restart:</strong> Restart your iMac to ensure the root patch removal takes full effect. 
-                                        <div class="alert-custom alert-warning-custom mt-2 mb-2">
-                                            <p class="mb-0" style="font-size: 0.9rem;"><strong>Expected Behavior:</strong> Your Mac will feel slow due to lack of graphics drivers, resolution may be incorrect, and WiFi will likely be unavailable. This is normal and expected.</p>
-                                        </div>
-                                    </li>
-                                    <li><strong>Use Migration Assistant Only After Restart:</strong> Once logged back in after the restart, launch Migration Assistant and proceed with the complete restoration process. Do not attempt to use Migration Assistant before completing the restart.</li>
-                                    <li><strong>Reinstall Root Patches:</strong> After restoration is complete, reopen the OCLP application and reinstall the root patches to restore full functionality.</li>
-                                    <li><strong>Final Restart:</strong> Restart once more to complete the process with full OCLP functionality restored.</li>
+                                    <li><strong>Connect the Drive:</strong> Plug your new external hard drive into one
+                                        of
+                                        your iMac's USB ports.</li>
+                                    <li><strong>Format the Drive (if needed):</strong> A pop-up may appear asking if you
+                                        want to use the drive for Time Machine. If so, click "Use as Backup Disk." If
+                                        not,
+                                        open the "Disk Utility" application, select your external drive, click "Erase,"
+                                        and
+                                        format it as "APFS" or "Mac OS Extended (Journaled)."</li>
+                                    <li><strong>Start the First Backup:</strong> Once formatted, go to <strong>System
+                                            Settings > General > Time Machine</strong>. Click "Add Backup Disk," select
+                                        your
+                                        external drive, and the backup will begin. The first backup can take a few
+                                        hours, so
+                                        let it run.</li>
+                                    <li><strong>Before an Update:</strong> Always ensure your backup is current. Click
+                                        the
+                                        Time Machine icon in the menu bar (a clock with a circular arrow) and select
+                                        "Back
+                                        Up Now."</li>
                                 </ol>
-                                <p class="mt-3"><em>This method provides complete restoration but requires temporary removal and reinstallation of root patches.</em></p>
+                            </div>
+                        </div>
+                        <div class="content-block content-block--green" id="update-process">
+                            <h3 class="text-center" style="border: none; margin-bottom: 2rem;">Part 2: The Smart Update
+                                Process</h3>
+                            <p class="text-center mb-4">The OpenCore Legacy Patcher (OCLP) is an intelligent application
+                                that often guides you through the update process. The key is to follow its prompts. Here
+                                is
+                                the typical workflow:</p>
+
+                            <div class="guide-card">
+                                <div class="step-number">Step 1</div>
+                                <h3>Check for OCLP Prompts & Prepare</h3>
+                                <p>Before you do anything, open the <strong>OpenCore-Patcher</strong> app from your
+                                    Applications folder. OCLP will automatically check for updates and prompt you if its
+                                    own
+                                    application or bootloader is out of date. <strong>Always accept these updates
+                                        first.</strong></p>
+                                <p><strong>Pro-Tip:</strong> Sometimes, when you check for a macOS update in System
+                                    Settings, OCLP will detect this and proactively prompt you to download necessary
+                                    libraries in advance. If you see this prompt, accept it. This makes the final
+                                    patching
+                                    step much faster.</p>
                             </div>
 
                             <div class="guide-card">
-                                <div class="step-number">Troubleshooting</div>
-                                <h3>Common Issues and Solutions</h3>
+                                <div class="step-number">Step 2</div>
+                                <h3>Install the macOS Update</h3>
+                                <p>Once OCLP is up-to-date, you can proceed. Go to <strong>System Settings > General >
+                                        Software Update</strong> and click "Update Now." Your iMac will download the
+                                    official update directly from Apple's servers and begin the installation, which may
+                                    involve several restarts. This is normal.</p>
+                            </div>
+
+                            <div class="guide-card">
+                                <div class="step-number">Step 3</div>
+                                <h3>Apply Post-Install Root Patches</h3>
+                                <p>This is the final and most important step. Each official update from Apple **wipes
+                                    the
+                                    custom drivers** needed for things like graphics and Wi-Fi to work on your iMac.
+                                    This
+                                    step reinstalls them.</p>
+                                <p>After the macOS update is complete, the OCLP app should <strong>automatically open
+                                        and
+                                        prompt you</strong> that "post-install root patches are required." Simply follow
+                                    the
+                                    on-screen instructions to apply them. If it doesn't open automatically, just launch
+                                    it
+                                    yourself and click <strong>"Post-Install Root Patch."</strong> Reboot when prompted
+                                    to
+                                    complete the process.</p>
+                            </div>
+                        </div>
+                        <h3 class="text-center" style="border: none; margin-bottom: 2rem;" id="faq">Part 3: Frequently
+                            Asked
+                            Questions (FAQ)</h3>
+                        <div class="accordion" id="faqAccordion">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                        What is OCLP, really? Is it a "hack"?
+                                    </button>
+                                </h2>
+                                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                                    data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        <h5>A Clear Guide to OpenCore Legacy Patcher (OCLP)</h5>
+                                        <p>At the heart of every modern, upgraded iMac I build is a brilliant piece of software called OpenCore Legacy Patcher, or OCLP. If you've ever wondered how it's possible to run the latest, most secure macOS on a machine that Apple no longer officially supports, this guide will explain the magic in a simple, technical way.</p>
+
+                                        <h6><strong>1. The Problem: The "Software Wall"</strong></h6>
+                                        <p>Every year, Apple releases a new version of macOS with new features and security updates. For business reasons, they also publish a list of Mac models that can officially run it. Typically, after about 6-8 years, older Macs are left behind and no longer receive these major upgrades, even though their hardware is often still incredibly capable.</p>
+                                        <p>This creates a "software wall" where perfectly good, high-quality machines are prevented from running modern software. This is the problem that OCLP was created to solve.</p>
+
+                                        <h6><strong>2. The Solution: OCLP as the "Master Translator"</strong></h6>
+                                        <p>It's important to understand that OCLP is not a "hack" or a pirated piece of software.</p>
+                                        <p>Think of OCLP as a highly sophisticated translator. The new macOS speaks a new "language" that the older hardware doesn't fully understand. OCLP is a modern, open-source, and publicly audited tool that sits between them and translates in real-time, allowing them to communicate perfectly.</p>
+                                        <p>It is a bootloader, which means it's a small piece of software that runs for a few seconds right when you turn your Mac on, before macOS itself even starts.</p>
+
+                                        <h6><strong>3. How It Works: The Startup Process</strong></h6>
+                                        <p>The genius of OCLP is that its process is both powerful and non-invasive. It doesn't permanently change or damage your macOS installation. Here's a step-by-step look at what happens when you press the power button:</p>
+                                        <p><strong>Startup:</strong> When you turn on your iMac, the first thing it does is look for instructions on a tiny, hidden section of your main drive called the EFI partition.</p>
+                                        <p><strong>OCLP Loads First:</strong> I install the OCLP bootloader onto this partition. So, before macOS starts, OCLP loads into the computer's memory (RAM).</p>
+                                        <p><strong>Applying "In-Memory" Patches:</strong> For a few moments, OCLP creates a virtual environment in the memory. It applies a set of patches and instructions that essentially trick the official macOS installer into thinking it's running on a newer, supported machine.</p>
+                                        <p><strong>Booting Genuine macOS:</strong> With the translation layer active, the system then proceeds to load the 100% genuine, unmodified, and cryptographically signed version of macOS that was downloaded directly from Apple's servers.</p>
+                                        <p><strong>The Post-Install Root Patch (The Final, Crucial Step):</strong> This is the magic that makes everything work smoothly after you've logged in. Each official update from Apple wipes the custom drivers needed for things like graphics, Wi-Fi, and Bluetooth to work on your specific iMac. The OCLP application's final step is to run a "Post-Install Root Patch," which simply reinstalls these necessary drivers. This is why your graphics look beautiful and your Wi-Fi connects perfectly.</p>
+
+                                        <h6><strong>4. The Result: What This Means For You</strong></h6>
+                                        <p><strong>A Modern Experience:</strong> You get to use the latest features, run the newest applications, and receive critical security updates on a budget-friendly machine.</p>
+                                        <p><strong>Excellent Performance:</strong> Because the core macOS is genuine and the OCLP process has a negligible impact on performance, the speed you experience is a direct result of the high-quality hardware upgrades, like the mandatory SSD.</p>
+                                        <p><strong>Safety and Stability:</strong> The process is transparent, community-vetted, and doesn't permanently alter the core operating system, making it a reliable and stable solution for extending the life of your iMac.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingTwo">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        Can I upgrade to major new versions of macOS (e.g., macOS 16 "Tahoe")?
+                                    </button>
+                                </h2>
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                    data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        <p>Yes, absolutely! However, it's crucial <strong>not to upgrade on release
+                                                day.</strong> The OCLP community needs time (usually 2-3 months) to
+                                            ensure
+                                            the new OS runs perfectly on older hardware. I personally test these major
+                                            upgrades and will give my clients the go-ahead once I've confirmed it's
+                                            stable
+                                            and reliable.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseThree" aria-expanded="false"
+                                        aria-controls="collapseThree">
+                                        What do I do if something goes wrong after an update?
+                                    </button>
+                                </h2>
+                                <div id="collapseThree" class="accordion-collapse collapse"
+                                    aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        <p>Your Time Machine backup is your ultimate safety net. You can boot into macOS
+                                            Recovery (by holding Command+R at startup) and restore your Mac to its exact
+                                            previous state. For minor issues like Wi-Fi not working, simply re-running
+                                            Step
+                                            3 (Apply Post-Install Root Patches) fixes the problem 99% of the time.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dual Boot Management Guide -->
+                <div class="row justify-content-center mb-5" id="dual-boot">
+                    <div class="col-lg-10">
+                        <h2 class="text-center">Dual Boot Management Guide</h2>
+                        <div class="content-block content-block--grey">
+                            <p class="text-center mb-4">Your iMac is configured to run both macOS and Windows, giving
+                                you
+                                the best of both worlds. This guide explains how to switch between them and handle
+                                updates.
+                            </p>
+
+                            <div class="guide-card" id="switching-os">
+                                <div class="step-number">Switching</div>
+                                <h3>How to Switch Between macOS and Windows</h3>
+                                <p>Thanks to the OpenCore bootloader, you don't need to hold any keys. The boot
+                                    selection
+                                    menu will appear automatically every time you start your iMac.</p>
+                                <ol class="fs-6">
+                                    <li><strong>Restart or Turn On Your iMac:</strong> Simply start your machine as you
+                                        normally would.</li>
+                                    <li><strong>Wait for the Boot Picker:</strong> After a moment, you will see the
+                                        OpenCore
+                                        boot picker screen, showing icons for macOS and Windows.</li>
+                                    <li><strong>Stop the Timer (You have 5 seconds!):</strong> The system will
+                                        automatically
+                                        boot into the default OS after a 5-second countdown. To stop this timer and make
+                                        a
+                                        choice, simply **press any arrow key** on your keyboard. You can now take your
+                                        time.
+                                    </li>
+                                    <li><strong>Select and Boot:</strong> Once the timer is stopped, use the left and
+                                        right
+                                        arrow keys to highlight the operating system you want to use. When you've made
+                                        your
+                                        choice, press the **`Enter`** key or click the icon with your mouse to start up.
+                                    </li>
+                                </ol>
+                            </div>
+
+                            <div class="guide-card" id="updating-systems">
+                                <div class="step-number">Updates</div>
+                                <h3>Updating Windows and macOS</h3>
+                                <p><strong>Updating Windows:</strong> You can update Windows normally. Simply go to
+                                    <strong>Start > Settings > Update & Security > Windows Update</strong> and install
+                                    any
+                                    available updates as you would on a standard PC.
+                                </p>
+
+                                <!-- NEW WINDOWS 11 NOTE -->
+                                <div class="alert-custom alert-info-custom mt-4">
+                                    <h5>⚠️ Important Note for Windows 11 Users</h5>
+                                    <p class="mb-0" style="font-size: 1rem;">To ensure system stability, it is crucial
+                                        to
+                                        manage a specific setting within the Microsoft PowerToys application. Please
+                                        make
+                                        sure the <strong>"Awake"</strong> utility is enabled. This prevents the iMac's
+                                        screen from freezing after the system enters a hibernation state due to
+                                        inactivity.
+                                        This setting is pre-configured on my builds, but it's important to be aware of
+                                        it
+                                        and ensure it remains active.</p>
+
+                                    <p class="mt-3 mb-2" style="font-size: 1rem;"><strong>Download PowerToys:</strong> If you need to download and install Microsoft PowerToys, you can get it from the Microsoft Store: <a href="https://apps.microsoft.com/detail/xp89dcgq3k6vld?hl=en-US&gl=US" target="_blank" class="text-decoration-none">Microsoft PowerToys</a></p>
+
+                                    <h6 class="mt-3 mb-2"><strong>Configuring PowerToys Awake Settings:</strong></h6>
+                                    <ol style="font-size: 0.95rem; margin-bottom: 1rem;">
+                                        <li><strong>Open PowerToys:</strong> Search for "PowerToys" in the Windows Start
+                                            menu and open the application.
+                                            <div class="mt-2 mb-3">
+                                                <img src="assets/images/powertoys1.png"
+                                                    alt="PowerToys Awake Option Location"
+                                                    class="img-fluid rounded border"
+                                                    style="max-width: 100%; height: auto;">
+                                                <small class="text-muted d-block mt-1"><em>PowerToys main interface
+                                                        showing the Awake option in the sidebar</em></small>
+                                            </div>
+                                        </li>
+                                        <li><strong>Navigate to Awake Settings:</strong> Click on "Awake" in the left
+                                            sidebar to access the power settings.
+                                            <div class="mt-2 mb-3">
+                                                <img src="assets/images/powertoys2.png"
+                                                    alt="Default PowerToys Awake Settings"
+                                                    class="img-fluid rounded border"
+                                                    style="max-width: 100%; height: auto;">
+                                                <small class="text-muted d-block mt-1"><em>Default Awake settings
+                                                        view</em></small>
+                                            </div>
+                                        </li>
+                                        <li><strong>Enable and Configure Awake:</strong> Toggle the "Enable Awake"
+                                            switch to ON, then select <strong>"Keep awake indefinitely"</strong> from
+                                            the dropdown options. Additionally, make sure to enable the <strong>"Keep
+                                                screen on"</strong> toggle to prevent screen hibernation.
+                                            <div class="mt-2 mb-3">
+                                                <img src="assets/images/powertoys3.png"
+                                                    alt="Properly Configured PowerToys Awake Settings"
+                                                    class="img-fluid rounded border"
+                                                    style="max-width: 100%; height: auto;">
+                                                <small class="text-muted d-block mt-1"><em>Correct configuration with
+                                                        "Keep awake indefinitely" and "Keep screen on" both
+                                                        enabled</em></small>
+                                            </div>
+                                        </li>
+                                    </ol>
+                                    <p class="mb-0 mt-2"><strong>Alternative Method:</strong> You can also manage Awake
+                                        by right-clicking the PowerToys Awake icon in the system task tray and selecting
+                                        the appropriate mode.</p>
+                                    <p class="mb-0 mt-2"><em><strong>Important:</strong> Both "Keep awake indefinitely"
+                                            and "Keep screen on" options must be enabled to prevent the iMac's screen
+                                            from freezing during hibernation.</em></p>
+                                </div>
+
+                                <p class="mt-4"><strong>Updating macOS:</strong> This is very important. To update the
+                                    macOS
+                                    side of your dual-boot system, you must follow the **exact same procedure** detailed
+                                    in
+                                    the "macOS Update and Upgrade Procedure" section above. This ensures the OpenCore
+                                    Legacy
+                                    Patcher configuration remains correct.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- User Account Management Guide -->
+                <div class="row justify-content-center mb-5" id="user-account-management">
+                    <div class="col-lg-10">
+                        <h2 class="text-center">User Account Management Guide</h2>
+                        <div class="content-block content-block--green">
+                            <p class="text-center mb-4">Managing user accounts on your dual-boot iMac involves understanding both macOS and Windows 11 user management. This guide covers account setup, security, and best practices for both operating systems.</p>
+
+                            <div class="guide-card" id="account-setup">
+                                <div class="step-number">Setup</div>
+                                <h3>Creating and Managing User Accounts</h3>
+                                <p>Your iMac supports all standard user account types and management features for both macOS and Windows 11. Here's how to properly set up and manage user accounts on both systems:</p>
+                                
+                                <h4 class="mt-4">macOS - Adding New User Accounts:</h4>
+                                <ol class="fs-6">
+                                    <li><strong>Open System Settings:</strong> Click the Apple menu > System Settings (or System Preferences on older macOS versions).</li>
+                                    <li><strong>Navigate to Users & Groups:</strong> Look for "Users & Groups" in the sidebar or main settings area.</li>
+                                    <li><strong>Authenticate:</strong> Click the lock icon and enter your administrator password to make changes.</li>
+                                    <li><strong>Add User:</strong> Click the "+" button to add a new user account.</li>
+                                    <li><strong>Choose Account Type:</strong> Select from Administrator, Standard, or Managed with Parental Controls.</li>
+                                    <li><strong>Complete Setup:</strong> Fill in the required information (name, account name, password, and password hint* optional).</li>
+                                </ol>
+
+                                <h4 class="mt-4">Windows 11 - Adding New User Accounts:</h4>
+                                <ol class="fs-6">
+                                    <li><strong>Open Settings:</strong> Press Windows key + I, or click Start > Settings.</li>
+                                    <li><strong>Navigate to Accounts:</strong> Click on "Accounts" in the left sidebar.</li>
+                                    <li><strong>Access Family & Users:</strong> Click "Family & other users" in the account settings.</li>
+                                    <li><strong>Add Account:</strong> Click "Add someone else to this PC" under "Other users".</li>
+                                    <li><strong>Choose Account Type:</strong> Select "I don't have this person's sign-in information" then "Add a user without a Microsoft account" for local accounts.</li>
+                                    <li><strong>Complete Setup:</strong> Enter username, password, and security questions for the new account.</li>
+                                    <li><strong>Set Account Type:</strong> After creation, click the account and choose "Change account type" to set as Administrator or Standard User.</li>
+                                </ol>
+
+                                <div class="alert-custom alert-info-custom mt-4">
+                                    <h5>💡 Dual-Boot Consideration</h5>
+                                    <p class="mb-0"><strong>macOS:</strong> All new user accounts will automatically benefit from all OCLP enhancements including graphics acceleration, Wi-Fi functionality, and any other post-install patches, as the OCLP configuration is installed globally on your system.<br><br>
+                                    <strong>Windows 11:</strong> New user accounts will have access to all pre-configured Windows applications including PowerToys but the Awake functionality needs to be configured for each User account individually.</p>
+                                </div>
+                            </div>
+
+                            <div class="guide-card" id="account-security">
+                                <div class="step-number">Security</div>
+                                <h3>Account Security & Best Practices Advice</h3>
+                                <p>Securing user accounts on both macOS and Windows 11 is essential for protecting your data and maintaining system integrity. Here are platform-specific security recommendations for your macOS and/or Windows 11 iMac:</p>
+
+                                <h4 class="mt-4">macOS Security Settings:</h4>
                                 <ul class="fs-6">
-                                    <li><strong>Sequoia Restore Loops:</strong> If you encounter "Migration Finished" loops on Sequoia, restore on an older macOS version first, then upgrade to Sequoia afterward.</li>
-                                    <li><strong>Network Drive Access:</strong> If your backup is on a network drive and WiFi is unavailable during the process, connect via Ethernet cable.</li>
-                                    <li><strong>Kernel Panics:</strong> If you experience crashes during restoration, ensure you're using the correct method for your macOS version and that root patches are properly handled.</li>
-                                    <li><strong>Restoration Issues:</strong> If the restoration process fails, ensure root patches are completely reverted before attempting again.</li>
+                                    <li><strong>Strong Passwords:</strong> Use unique, complex passwords for each account. Consider using the built-in password manager.</li>
+                                    <li><strong>Two-Factor Authentication:</strong> Enable 2FA for Apple ID accounts used on the system.</li>
+                                    <li><strong>Automatic Login:</strong> Disable automatic login for security, especially on shared machines.</li>
+                                    <li><strong>Screen Lock:</strong> Set up screen saver password requirements after a reasonable timeout period.</li>
+                                    <li><strong>Guest Account:</strong> Disable the guest account if not needed for security.</li>
+                                </ul>
+
+                                <h4 class="mt-4">Windows 11 Security Settings:</h4>
+                                <ul class="fs-6">
+                                    <li><strong>Microsoft Defender:</strong> Ensure Windows Defender is active and updated.</li>
+                                    <li><strong>User Account Control (UAC):</strong> Keep UAC enabled to prevent unauthorized changes.</li>
+                                    <li><strong>Microsoft Account vs Local:</strong> Choose based on your privacy preferences and sync needs.</li>
+                                    <li><strong>Windows Updates:</strong> Enable automatic security updates for critical patches.</li>
+                                    <li><strong>Family Safety:</strong> Use Microsoft Family features for child accounts and screen time management.</li>
+                                </ul>
+
+                                <h4 class="mt-4">Disk Encryption for Both Systems:</h4>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h5>macOS - FileVault:</h5>
+                                        <ol class="fs-6">
+                                            <li><strong>Enable FileVault:</strong> Go to System Settings > Privacy & Security > FileVault.</li>
+                                            <li><strong>Choose Recovery Method:</strong> Select either iCloud account recovery or create a recovery key.</li>
+                                            <li><strong>Important:</strong> Store your recovery key securely - you'll need it if you forget your password.</li>
+                                            <li><strong>Restart Required:</strong> FileVault encryption begins after restart and continues in the background.</li>
+                                        </ol>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h5>Windows 11 - BitLocker:</h5>
+                                        <ol class="fs-6">
+                                            <li><strong>Enable BitLocker:</strong> Go to Settings > System > Storage > Advanced storage settings > Disk & volumes.</li>
+                                            <li><strong>Select Drive:</strong> Click your Windows drive and select "Turn on BitLocker".</li>
+                                            <li><strong>Backup Recovery Key:</strong> Save your recovery key to a secure location (not on the encrypted drive).</li>
+                                            <li><strong>Encryption Process:</strong> BitLocker will encrypt in the background while you continue using Windows.</li>
+                                        </ol>
+                                    </div>
+                                </div>
+
+                                <div class="alert-custom alert-warning-custom mt-4">
+                                    <h5>⚠️ Administrator Accounts:</h5>
+                                    <strong> Always maintain access to at least one Administrator account with a known password on both operating systems.</strong>
+                                </div>
+
+                                <h4 class="mt-4">Account Switching & Fast User Switching:</h4>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h5>macOS:</h5>
+                                        <ol class="fs-6">
+                                            <li>Go to System Settings > Users & Groups</li>
+                                            <li>Click "Login Options" in the sidebar</li>
+                                            <li>Enable "Show fast user switching menu as" and choose your preferred display option</li>
+                                        </ol>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h5>Windows 11:</h5>
+                                        <ol class="fs-6">
+                                            <li>Click the Start button and select your user account icon</li>
+                                            <li>Select "Switch user" from the dropdown menu</li>
+                                            <li>Or use Ctrl + Alt + Delete and select "Switch user"</li>
+                                        </ol>
+                                    </div>
+                                </div>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Time Machine Restore Guide -->
+                <div class="row justify-content-center mb-5" id="time-machine-restore">
+                    <div class="col-lg-10">
+                        <h2 class="text-center">Time Machine Restore Guide</h2>
+                        <div class="content-block content-block--blue">
+                            <p class="text-center mb-4">Restoring from Time Machine backups on OCLP systems requires a
+                                special procedure to ensure complete restoration without issues. This guide covers the
+                                recommended method for full system restoration.</p>
+
+                            <!-- Important Warnings Section -->
+                            <div class="alert-custom alert-warning-custom mb-4" id="restore-warnings">
+                                <h4>⚠️ Critical Information Before Restoring</h4>
+                                <ul class="mb-0">
+                                    <li><strong>Root Patches Impact:</strong> OCLP root patches can interfere with Time
+                                        Machine restoration and may cause kernel panics.</li>
+                                    <li><strong>Sequoia Warning:</strong> Time Machine on macOS Sequoia may not function
+                                        properly even after uninstalling root patches, potentially causing restore
+                                        loops.</li>
+                                    <li><strong>System Requirements:</strong> Full restoration is only supported on
+                                        Monterey and newer. Big Sur does not support snapshot reversion.</li>
+                                    <li><strong>Network Drives:</strong> If your backup is on a network drive, ensure
+                                        Ethernet connectivity as WiFi may be unavailable during restoration.</li>
                                 </ul>
                             </div>
+
+                            <!-- Migration Assistant Image -->
+                            <div class="text-center mb-4">
+                                <img src="assets/images/timemachine-restore.png"
+                                    alt="Migration Assistant Transfer Options" class="img-fluid rounded border"
+                                    style="max-width: 100%; height: auto;">
+                                <small class="text-muted d-block mt-2"><em>Migration Assistant showing transfer options
+                                        during the restoration process</em></small>
+                            </div>
+
+                            <div id="restore-methods">
+                                <div class="guide-card">
+                                    <div class="step-number">Process</div>
+                                    <h3>Complete Time Machine Restoration</h3>
+                                    <p>This method provides complete system restoration, restoring everything exactly as
+                                        it was, including all files and system configurations.</p>
+
+                                    <div class="alert-custom alert-info-custom mb-3">
+                                        <h5>📋 Requirements</h5>
+                                        <p class="mb-0">Requires macOS Monterey or newer. Your Mac will temporarily run
+                                            slower with reduced functionality during the process.</p>
+                                    </div>
+
+                                    <h4 class="mt-4">Steps:</h4>
+                                    <ol class="fs-6">
+                                        <li><strong>Initial Setup:</strong> During first-time Setup Assistant, do NOT
+                                            restore the backup. Complete all settings as if starting fresh and reach the
+                                            desktop.</li>
+                                        <li><strong>Remove Root Patches from System:</strong> Open the OCLP application
+                                            and navigate to "Post Install Volume Patches" section. Click to
+                                            revert/uninstall the root patches. This completely removes all OCLP
+                                            modifications from the system.</li>
+                                        <li><strong>Mandatory Restart:</strong> Restart your iMac to ensure the root
+                                            patch removal takes full effect.
+                                            <div class="alert-custom alert-warning-custom mt-2 mb-2">
+                                                <p class="mb-0" style="font-size: 0.9rem;"><strong>Expected
+                                                        Behavior:</strong> Your Mac will feel slow due to lack of
+                                                    graphics drivers, resolution may be incorrect, and WiFi will likely
+                                                    be unavailable. This is normal and expected.</p>
+                                            </div>
+                                        </li>
+                                        <li><strong>Use Migration Assistant Only After Restart:</strong> Once logged
+                                            back in after the restart, launch Migration Assistant and proceed with the
+                                            complete restoration process. Do not attempt to use Migration Assistant
+                                            before completing the restart.</li>
+                                        <li><strong>Reinstall Root Patches:</strong> After restoration is complete,
+                                            reopen the OCLP application and reinstall the root patches to restore full
+                                            functionality.</li>
+                                        <li><strong>Final Restart:</strong> Restart once more to complete the process
+                                            with full OCLP functionality restored.</li>
+                                    </ol>
+                                    <p class="mt-3"><em>This method provides complete restoration but requires temporary
+                                            removal and reinstallation of root patches.</em></p>
+                                </div>
+
+                                <div class="guide-card">
+                                    <div class="step-number">Troubleshooting</div>
+                                    <h3>Common Issues and Solutions</h3>
+                                    <ul class="fs-6">
+                                        <li><strong>Sequoia Restore Loops:</strong> If you encounter "Migration
+                                            Finished" loops on Sequoia, restore on an older macOS version first, then
+                                            upgrade to Sequoia afterward.</li>
+                                        <li><strong>Network Drive Access:</strong> If your backup is on a network drive
+                                            and WiFi is unavailable during the process, connect via Ethernet cable.</li>
+                                        <li><strong>Kernel Panics:</strong> If you experience crashes during
+                                            restoration, ensure you're using the correct method for your macOS version
+                                            and that root patches are properly handled.</li>
+                                        <li><strong>Restoration Issues:</strong> If the restoration process fails,
+                                            ensure root patches are completely reverted before attempting again.</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-        </div>
+            </div>
     </main>
 
     <!-- Footer -->
