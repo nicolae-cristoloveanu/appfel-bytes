@@ -1,4 +1,4 @@
-        /*
+/*
         ================================================================================
         |                                                                              |
         |           APPFEL-BYTES - Custom Apple-Style Theme                          |
@@ -389,6 +389,17 @@
             font-weight: 600;
         }
 
+        .alert-danger-custom {
+            border-color: rgba(217, 48, 37, 0.5); /* var(--color-accent-red) */
+            background-color: rgba(217, 48, 37, 0.05);
+            color: var(--color-accent-red);
+        }
+
+        .alert-danger-custom h5 {
+            color: var(--color-accent-red);
+            font-weight: 600;
+        }
+
         .disclaimer-box {
             background-color: var(--color-background-offwhite);
             border: 1px solid var(--color-border-subtle);
@@ -408,6 +419,88 @@
             transform: scale(1.02);
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
         }
+
+        /* --- Buttons --- */
+        .btn-primary-apple {
+            background-color: var(--color-accent-blue);
+            color: white;
+            font-weight: 500;
+            border-radius: var(--border-radius-small);
+            padding: 0.75rem 1.5rem;
+            border: none;
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-primary-apple:hover {
+            background-color: #005bb5;
+            color: white;
+        }
+
+        .btn-secondary-apple {
+            background-color: var(--color-background-offwhite);
+            color: var(--color-text-primary);
+            font-weight: 500;
+            border-radius: var(--border-radius-small);
+            padding: 0.75rem 1.5rem;
+            border: 1px solid var(--color-border-subtle);
+            transition: background-color 0.2s ease;
+        }
+
+        .btn-secondary-apple:hover {
+            background-color: #e8e8ed;
+        }
+
+        .btn-hero {
+            margin-top: 1.5rem;
+        }
+        
+        /* --- Modal Styling --- */
+        .modal-content {
+            border-radius: var(--border-radius-large);
+            border: none;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            background-color: var(--color-background-offwhite);
+        }
+
+        .modal-header {
+            border-bottom: 1px solid var(--color-border-subtle);
+            padding: 1.5rem;
+        }
+
+        .modal-header .modal-title {
+            font-weight: 600;
+            font-size: 1.25rem;
+            color: var(--color-text-primary);
+            display: flex;
+            align-items: center;
+        }
+
+        .modal-title-logo {
+            height: 28px;
+            margin-right: 0.75rem;
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+        }
+
+        .modal-body p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .modal-image {
+            border-radius: var(--border-radius-small);
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-footer {
+            border-top: 1px solid var(--color-border-subtle);
+            background-color: var(--color-background-offwhite);
+            border-bottom-left-radius: var(--border-radius-large);
+            border-bottom-right-radius: var(--border-radius-large);
+            padding: 1rem 1.5rem;
+        }
         
         /* --- Footer --- */
         footer {
@@ -422,7 +515,20 @@
             width: calc(100% - 280px);
             max-width: none;
         }
-        
+
+        /* --- Image Gallery Styles --- */
+        .gallery-image {
+            border-radius: var(--border-radius-large);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--color-border-subtle);
+        }
+
+        .gallery-image:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
         /*
         ================================================================================
         |   Responsive Adjustments (Media Queries)                                     |
@@ -478,4 +584,23 @@
             .lead {
                 font-size: 1.1rem;
             }
+        }
+
+        /* --- New guide-card-danger style --- */
+        .guide-card-danger {
+            background-color: #fff;
+            border: 1px solid var(--color-accent-red);
+            color: var(--color-text-primary);
+        }
+
+        .guide-card-danger h5 {
+            color: var(--color-accent-red);
+        }
+
+        .guide-card-danger p {
+            color: var(--color-text-secondary);
+        }
+
+        .guide-card-danger .text-muted {
+            color: var(--color-text-secondary) !important;
         }
