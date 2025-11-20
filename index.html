@@ -231,7 +231,7 @@
                         <div class="content-block content-block--blue" id="preparation">
                             <h3 class="text-center" style="border: none; margin-bottom: 2rem;">Part 1: Preparation</h3>
                             <div class="alert-custom alert-warning-custom mb-4">
-                                <h4>An Important Note for OpenCore Users</h4>
+                                <h5>An Important Note for OpenCore Users</h5>
                                 <p class="mb-0">The most important rule for a stable system is to **NEVER use Automatic
                                     Updates.** The standard macOS updater doesn't know about the special OCLP
                                     configuration.
@@ -251,7 +251,7 @@
                                     button" and safety net, allowing you to restore your Mac to its exact previous state
                                     if
                                     anything goes wrong.</p>
-                                <h4 class="mt-4">What You'll Need:</h4>
+                                <h5 class="mt-4">What You'll Need:</h5>
                                 <p>You will need an external hard drive. Any standard USB external drive from brands
                                     like
                                     Seagate, Western Digital, or LaCie will work perfectly. For best results, choose a
@@ -259,7 +259,7 @@
                                     that has **at least the same amount of storage as your iMac's internal drive, or
                                     larger.** For example, if your iMac has a 1TB SSD, use a 1TB or 2TB external drive.
                                 </p>
-                                <h4 class="mt-4">How to Set It Up:</h4>
+                                <h5 class="mt-4">How to Set It Up:</h5>
                                 <ol class="fs-6">
                                     <li><strong>Connect the Drive:</strong> Plug your new external hard drive into one
                                         of
@@ -429,10 +429,10 @@
                 </div>
 
                 <!-- macOS Update Management Guide -->
-                <div class="row justify-content-center mb-5" id="macos-update">                <!-- Dual Boot Management Guide -->
+                <div class="row justify-content-center mb-5" id="macos-update">                <!-- Dual Boot and Windows 11 Management Guide -->
                 <div class="row justify-content-center mb-5" id="dual-boot">
                     <div class="col-lg-10">
-                        <h2 class="text-center">Dual Boot Management Guide</h2>
+                        <h2 class="text-center">Dual Boot and Windows 11 Management Guide</h2>
                         <div class="content-block content-block--grey">
                             <p class="text-center mb-4">If your iMac is configured to run both macOS and Windows, giving
                                 you
@@ -452,12 +452,7 @@
                                     <li><strong>Wait for the Boot Picker:</strong> After a moment, you will see the
                                         OpenCore
                                         boot picker screen, showing icons for macOS and Windows.</li>
-                                    <li><strong>Stop the Timer (You have 5 seconds!):</strong> The system will
-                                        automatically
-                                        boot into the default OS after a 5-second countdown. To stop this timer and make
-                                        a
-                                        choice, simply **press any arrow key** on your keyboard. You can now take your
-                                        time.
+                                    <li><strong>Stop the Timer:</strong> The system automatically boots into the default OS after 5 seconds. To stop the timer, **press any arrow key**.
                                     </li>
                                     <li><strong>Select and Boot:</strong> Once the timer is stopped, use the left and
                                         right
@@ -477,10 +472,47 @@
                                     available updates as you would on a standard PC.
                                 </p>
 
+                                <p class="mt-4"><strong>Updating macOS:</strong> To update your
+                                    macOS
+                                    installation on your dual-boot system, you must follow the *exact same procedure* detailed in
+                                    the "macOS Update and Upgrade Procedure" section above. This ensures the OpenCore Legacy
+                                    Patcher configuration remains correct.</p>
+
+                                <!-- Apple Software Update for Boot Camp Drivers -->
+                                <h4 class="mt-4">Keep Windows Drivers Updated</h4>
+                                <p class="mb-2">For optimal performance in Windows, it's important to keep your hardware drivers current. Apple provides a simple tool for this.</p>
+
+                                <h5 class="mt-4"><strong>Using Apple Software Update:</strong></h5>
+                                <ol class="fs-6">
+                                    <li><strong>Open Apple Software Update:</strong> Click the Start menu and search
+                                        for "Apple Software Update" or find it in the Boot Camp Control Panel.
+                                        <div class="mt-2 mb-3">
+                                            <img src="assets/images/apple-software-updater.png"
+                                                alt="Apple Software Update Application"
+                                                class="img-fluid rounded border"
+                                                style="max-width: 100%; height: auto;">
+                                            <small class="text-muted d-block mt-1"><em>Apple Software Update
+                                                    application showing available driver and support software
+                                                    updates</em></small>
+                                        </div>
+                                    </li>
+                                    <li><strong>Check for Updates:</strong> Click "Check Now" to scan for available
+                                        updates to your Boot Camp drivers and Apple hardware support software.</li>
+                                    <li><strong>Install Updates:</strong> Select the updates you want to install and
+                                        click "Install." Some updates may require a restart to complete.</li>
+                                    <li><strong>Automatic Checks:</strong> You can configure Apple Software Update
+                                        to check for updates automatically by adjusting the settings in the
+                                        application.</li>
+                                </ol>
+
+                                <p class="mb-0 mt-3"><strong>Recommended Schedule:</strong> Check for Apple updates
+                                    at least once a month to ensure your Boot Camp drivers remain current and your
+                                    iMac's hardware functions optimally in Windows 11.</p>
+
                                 <!-- NEW WINDOWS 11 NOTE -->
                                 <div class="alert-custom alert-info-custom mt-4">
                                     <h5>⚠️ Important Note for Windows 11 Users</h5>
-                                    <p class="mb-0" style="font-size: 1rem;">To ensure system stability, it is crucial
+                                    <p class="mb-0" style="font-size: 1rem;">To ensure system stability, it is important
                                         to
                                         manage a specific setting within the Microsoft PowerToys application. Please
                                         make
@@ -493,7 +525,7 @@
 
                                     <p class="mt-3 mb-2" style="font-size: 1rem;"><strong>Download PowerToys:</strong> If you need to download and install Microsoft PowerToys, you can get it from the Microsoft Store: <a href="https://apps.microsoft.com/detail/xp89dcgq3k6vld?hl=en-US&gl=US" target="_blank" class="text-decoration-none">Microsoft PowerToys</a></p>
 
-                                    <h6 class="mt-3 mb-2"><strong>Configuring PowerToys Awake Settings:</strong></h6>
+                                    <h6 class="mt-3"><strong>Configuring PowerToys Awake Settings:</strong></h6>
                                     <ol style="font-size: 0.95rem; margin-bottom: 1rem;">
                                         <li><strong>Open PowerToys:</strong> Search for "PowerToys" in the Windows Start
                                             menu and open the application.
@@ -539,14 +571,6 @@
                                             and "Keep screen on" options must be enabled to prevent the iMac's screen
                                             from freezing during hibernation.</em></p>
                                 </div>
-
-                                <p class="mt-4"><strong>Updating macOS:</strong> This is very important. To update the
-                                    macOS
-                                    side of your dual-boot system, you must follow the **exact same procedure** detailed
-                                    in
-                                    the "macOS Update and Upgrade Procedure" section above. This ensures the OpenCore
-                                    Legacy
-                                    Patcher configuration remains correct.</p>
                             </div>
                         </div>
                     </div>
@@ -564,7 +588,7 @@
                                 <h3>Creating and Managing User Accounts</h3>
                                 <p>Your iMac supports all standard user account types and management features for both macOS and Windows 11. Here's how to properly set up and manage user accounts on both systems:</p>
                                 
-                                <h4 class="mt-4">macOS - Adding New User Accounts:</h4>
+                                <h5 class="mt-4">macOS - Adding New User Accounts:</h5>
                                 <ol class="fs-6">
                                     <li><strong>Open System Settings:</strong> Click the Apple menu > System Settings (or System Preferences on older macOS versions).</li>
                                     <li><strong>Navigate to Users & Groups:</strong> Look for "Users & Groups" in the sidebar or main settings area.</li>
@@ -574,7 +598,7 @@
                                     <li><strong>Complete Setup:</strong> Fill in the required information (name, account name, password, and password hint* optional).</li>
                                 </ol>
 
-                                <h4 class="mt-4">Windows 11 - Adding New User Accounts:</h4>
+                                <h5 class="mt-4">Windows 11 - Adding New User Accounts:</h5>
                                 <ol class="fs-6">
                                     <li><strong>Open Settings:</strong> Press Windows key + I, or click Start > Settings.</li>
                                     <li><strong>Navigate to Accounts:</strong> Click on "Accounts" in the left sidebar.</li>
@@ -597,7 +621,7 @@
                                 <h3>Account Security & Best Practices Advice</h3>
                                 <p>Securing user accounts on both macOS and Windows 11 is essential for protecting your data and maintaining system integrity. Here are platform-specific security recommendations for your macOS and/or Windows 11 iMac:</p>
 
-                                <h4 class="mt-4">macOS Security Settings:</h4>
+                                <h5 class="mt-4">macOS Security Settings:</h5>
                                 <ul class="fs-6">
                                     <li><strong>Strong Passwords:</strong> Use unique, complex passwords for each account. Consider using the built-in password manager.</li>
                                     <li><strong>Two-Factor Authentication:</strong> Enable 2FA for Apple ID accounts used on the system.</li>
@@ -606,7 +630,7 @@
                                     <li><strong>Guest Account:</strong> Disable the guest account if not needed for security.</li>
                                 </ul>
 
-                                <h4 class="mt-4">Windows 11 Security Settings:</h4>
+                                <h5 class="mt-4">Windows 11 Security Settings:</h5>
                                 <ul class="fs-6">
                                     <li><strong>Microsoft Defender:</strong> Ensure Windows Defender is active and updated.</li>
                                     <li><strong>User Account Control (UAC):</strong> Keep UAC enabled to prevent unauthorized changes.</li>
@@ -615,10 +639,10 @@
                                     <li><strong>Family Safety:</strong> Use Microsoft Family features for child accounts and screen time management.</li>
                                 </ul>
 
-                                <h4 class="mt-4">Disk Encryption for Both Systems:</h4>
+                                <h5 class="mt-4">Disk Encryption for Both Systems:</h5>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <h5>macOS - FileVault:</h5>
+                                        <h6>macOS - FileVault:</h6>
                                         <ol class="fs-6">
                                             <li><strong>Enable FileVault:</strong> Go to System Settings > Privacy & Security > FileVault.</li>
                                             <li><strong>Choose Recovery Method:</strong> Select either iCloud account recovery or create a recovery key.</li>
@@ -627,7 +651,7 @@
                                         </ol>
                                     </div>
                                     <div class="col-md-6">
-                                        <h5>Windows 11 - BitLocker:</h5>
+                                        <h6>Windows 11 - BitLocker:</h6>
                                         <ol class="fs-6">
                                             <li><strong>Enable BitLocker:</strong> Go to Settings > System > Storage > Advanced storage settings > Disk & volumes.</li>
                                             <li><strong>Select Drive:</strong> Click your Windows drive and select "Turn on BitLocker".</li>
@@ -642,10 +666,10 @@
                                     <strong> Always maintain access to at least one Administrator account with a known password on both operating systems.</strong>
                                 </div>
 
-                                <h4 class="mt-4">Account Switching & Fast User Switching:</h4>
+                                <h5 class="mt-4">Account Switching & Fast User Switching:</h5>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <h5>macOS:</h5>
+                                        <h6>macOS:</h6>
                                         <ol class="fs-6">
                                             <li>Go to System Settings > Users & Groups</li>
                                             <li>Click "Login Options" in the sidebar</li>
@@ -653,7 +677,7 @@
                                         </ol>
                                     </div>
                                     <div class="col-md-6">
-                                        <h5>Windows 11:</h5>
+                                        <h6>Windows 11:</h6>
                                         <ol class="fs-6">
                                             <li>Click the Start button and select your user account icon</li>
                                             <li>Select "Switch user" from the dropdown menu</li>
@@ -678,7 +702,7 @@
 
                             <!-- Important Warnings Section -->
                             <div class="alert-custom alert-warning-custom mb-4" id="restore-warnings">
-                                <h4>⚠️ Critical Information Before Restoring</h4>
+                                <h5>⚠️ Critical Information Before Restoring</h5>
                                 <ul class="mb-0">
                                     <li><strong>Root Patches Impact:</strong> OCLP root patches can interfere with Time
                                         Machine restoration and may cause kernel panics.</li>
@@ -714,7 +738,7 @@
                                             slower with reduced functionality during the process.</p>
                                     </div>
 
-                                    <h4 class="mt-4">Steps:</h4>
+                                    <h5 class="mt-4">Steps:</h5>
                                     <ol class="fs-6">
                                         <li><strong>Initial Setup:</strong> During first-time Setup Assistant, do NOT
                                             restore the backup. Complete all settings as if starting fresh and reach the

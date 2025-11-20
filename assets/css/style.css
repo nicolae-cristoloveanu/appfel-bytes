@@ -373,7 +373,7 @@
             color: var(--color-text-primary);
         }
         
-        .alert-warning-custom h4 { /* NEW YELLOW STYLE */
+        .alert-warning-custom h5 { /* NEW YELLOW STYLE */
             color: var(--color-accent-yellow-dark);
             font-weight: 700;
         }
