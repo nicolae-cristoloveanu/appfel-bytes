@@ -230,7 +230,8 @@
                         <h2 class="text-center">macOS Update Management Guide</h2>
                         <div class="content-block content-block--blue" id="preparation">
                             <h3 class="text-center" style="border: none; margin-bottom: 2rem;">Part 1: Preparation</h3>
-                            <div class="alert-custom alert-warning-custom mb-4">
+                            <div class="guide-card guide-card-warning mb-4">
+                                <div class="step-number">Important</div>
                                 <h5>An Important Note for OpenCore Users</h5>
                                 <p>The most important rule for a stable system is to <strong>NOT use Automatic
                                     Updates.</strong> macOS Update will remove OLCP custom drivers each time the system is updated.</p>
@@ -314,7 +315,7 @@
                                 <p>Once OCLP is up-to-date, you can proceed. Go to <strong>System Settings > General >
                                         Software Update</strong> and click "Update Now." Your iMac will download the
                                     official update directly from Apple's servers and begin the installation, which may
-                                    involve several restarts. This is normal.</p>
+                                    involve several restarts. This is normal, <strong>and your machine will update by itself, without the need for user input.</strong></p>
                             </div>
 
                             <div class="guide-card">
@@ -336,6 +337,7 @@
                                     complete the process.</p>
                             </div>
                             <div class="guide-card guide-card-danger">
+                                <div class="step-number">Warning</div>
                                 <h5>⚠️ Important Note on macOS Tahoe Upgrades</h5>
                                 <p class="mb-2">At the moment, <strong>macOS Tahoe (26)</strong> is not yet stable for OCLP systems. The update will appear in your System Settings as shown below, but you must <strong>NOT</strong> install it yet.</p>
                                 <div class="text-center">
@@ -501,11 +503,11 @@
                                 <ol class="fs-6">
                                     <li><strong>Open Apple Software Update:</strong> Click the Start menu and search
                                         for "Apple Software Update" or find it in the Boot Camp Control Panel.
-                                        <div class="mt-2 mb-3">
+                                        <div class="mt-2 mb-3 text-center">
                                             <img src="assets/images/apple-software-updater.png"
                                                 alt="Apple Software Update Application"
                                                 class="img-fluid rounded border"
-                                                style="max-width: 100%; height: auto;">
+                                                style="max-width: 600px; height: auto;">
                                             <small class="text-muted d-block mt-1"><em>Apple Software Update
                                                     application showing available driver and support software
                                                     updates</em></small>
@@ -666,7 +668,7 @@
                                         </ol>
                                     </div>
                                     <div class="col-md-6">
-                                        <h6>Windows 11 - BitLocker (needs license):</h6>
+                                        <h6>Windows 11 - BitLocker (Needs Pro license):</h6>
                                         <ol class="fs-6">
                                             <li><strong>Enable BitLocker:</strong> Go to Settings > System > Storage > Advanced storage settings > Disk & volumes.</li>
                                             <li><strong>Select Drive:</strong> Click your Windows drive and select "Turn on BitLocker".</li>
@@ -677,8 +679,12 @@
                                 </div>
 
                                 <div class="alert-custom alert-warning-custom mt-4">
-                                    <h5>⚠️ Administrator Accounts:</h5>
-                                    <strong> Always maintain access to at least one Administrator account with a known password on both operating systems.</strong>
+                                    <h5>⚠️ Administrator Accounts (general advice):</h5>
+                                    <ul class="mb-0">
+                                        <li class="mb-2">Always maintain full access to at least one Administrator account with a known password on both operating systems.</li>
+                                        <li class="mb-2">All computers, regardless of make and model have Administrative, Standard (restricted) and Guest (most restricted) Accounts built in by default.</li>
+                                        <li>You as the Owner and User of the system have the ability to create, enable, disable and remove these features and accounts. A computer cannot and will not function without at least one Administrator account built in, which cannot be removed.</li>
+                                    </ul>
                                 </div>
 
                                 <h5 class="mt-4">Account Switching & Fast User Switching:</h5>
@@ -815,6 +821,23 @@
                                 <p>As an Apple ACiT & ACMT Certified Technician, I'm passionate about custom-building iMacs and it's a professional hobby. I think iMacs are superb, elegant devices that, when properly maintained and upgraded, can unlock incredible performance with the latest operating systems.</p>
                                 <p>That’s why I perform a full internal service on every machine: a deep clean of the cooling system, new thermal paste, and crucial upgrades to new high-speed SSDs and RAM.</p>
                                 <p>Whether you have bought a custom build or just have a question about Macs in general, feel free to reach out—I'm always happy to consult.</p>
+                                
+                                <h5 class="mt-4">Other services I provide:</h5>
+                                <ul class="service-list">
+                                    <li><strong>Upgrade Your Existing iMac:</strong> I offer a service to upgrade pre-owned 27" and 21.5" iMacs (Late 2012 - 2019) for a standard 2 hour labour fee plus components/parts costs and postage (2 way). Please message me to discuss the procedure and pricing. Work involved and transaction carried on eBay.</li>
+                                    <li>
+                                        <strong>Remote Support:</strong> It is my pleasure to offer general support via eBay messaging if you have any questions about your custom iMac, general enquiries or if you seek advice. For more in depth IT related work, issues or if you just need an expert’s support, I provide Remote Support assistance on an hourly rate. Please do reach out on eBay messaging to consult; Work carried on eBay listing with description of scope of work.
+                                        <ul class="mt-3">
+                                            <li>IT Consultation</li>
+                                            <li>Applications Support</li>
+                                            <li>Backup and Restore Assistance (macOS only)</li>
+                                            <li>Error Troubleshooting</li>
+                                            <li>Online Security Hardening and Advice (2 Factor Authentication Setup, Password Manager Setup, Browser Security Settings etc.)</li>
+                                            <li>iCloud Overview and Setup</li>
+                                        </ul>
+                                        <p class="mt-3"><em>Credentials available upon request, particularly LinkedIn account and work experience within the field of IT.</em></p>
+                                    </li>
+                                </ul>
                             </div>
 
                             <!-- Image Gallery -->

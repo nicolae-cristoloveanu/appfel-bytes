@@ -338,6 +338,10 @@
             box-shadow: 0 10px 20px rgba(0,0,0,0.05);
         }
 
+        .service-list > li {
+            margin-bottom: 1.5rem;
+        }
+
         .guide-card .step-number {
             font-size: 1.5rem;
             font-weight: 700;
@@ -347,6 +351,24 @@
             padding: 0.5rem 1rem;
             display: inline-block;
             margin-bottom: 1rem;
+        }
+
+        .guide-card-warning {
+            border-color: var(--color-accent-yellow-dark);
+        }
+
+        .guide-card-warning .step-number {
+            color: var(--color-accent-yellow-dark);
+            background-color: #fffbeb;
+        }
+        
+        .guide-card-danger {
+            border-color: var(--color-accent-red);
+        }
+
+        .guide-card-danger .step-number {
+            color: var(--color-accent-red);
+            background-color: rgba(217, 48, 37, 0.05);
         }
         
         /* --- FAQ Accordion Styling --- */
