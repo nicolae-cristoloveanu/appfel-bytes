@@ -354,12 +354,20 @@
         }
 
         .guide-card-warning {
-            border-color: var(--color-accent-yellow-dark);
+            background-color: #fffbeb;
+            border: 1px solid #fde68a;
+            color: var(--color-text-primary);
         }
 
-        .guide-card-warning .step-number {
+        .step-number--warning {
             color: var(--color-accent-yellow-dark);
-            background-color: #fffbeb;
+            background-color: rgba(252, 211, 77, 0.25); /* Brighter yellow background */
+            border: none;
+        }
+
+        .guide-card-warning h5 {
+            color: var(--color-accent-yellow-dark);
+            font-weight: 700;
         }
         
         .guide-card-danger {
