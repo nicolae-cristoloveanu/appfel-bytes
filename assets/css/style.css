@@ -521,8 +521,8 @@
         }
 
         .modal-title-logo {
-            height: 28px;
-            margin-right: 0.75rem;
+            max-width: 30px;
+            margin-right: 10px;
         }
 
         .modal-body {
@@ -591,6 +591,9 @@
             .section {
                 padding: 60px 0;
             }
+            .content-block {
+                padding: 2rem;
+            }
             
             /* Remove side nav margin on smaller screens */
             .main-content {
@@ -617,13 +620,16 @@
             h2 {
                 font-size: 2rem;
             }
+            h3 {
+                font-size: 1.75rem;
+            }
             .content-block {
                 padding: 1.5rem;
             }
             .guide-card {
                 padding: 1.5rem;
             }
-            p {
+            p, ul {
                 font-size: 1rem;
             }
             .lead {
