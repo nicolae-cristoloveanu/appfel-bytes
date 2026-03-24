@@ -805,32 +805,33 @@
                                         <p class="mb-3">Your Time Machine Backup Drive (must have) and recommended use of wired keyboard and mouse for the procedure.</p>
                                         <p class="mb-3">Requires macOS Monterey or newer. Your Mac will temporarily run
                                             slower with reduced functionality during the process of temporarily remove OLCP patches from your system.</p>
-                                        <p class="mb-0">DO NOT restore the backup before following the below steps. Restoring from a Time Machine Backup without first removing OLCP patches will render your restoration on your machine unusable. 
+                                        <p class="mb-0"><strong>DO NOT</strong> restore the backup before following the below steps. Restoring from a Time Machine Backup without first removing OLCP patches will render your restoration on your machine unusable. 
                                             Time Machine external backup drives are never affected themselves by failed Migration Assistant restorations as they are immutable backups.</p>
+                                        <p class="mb-0 mt-3"><strong>Important Note on Apple Sillicon Compatibility:</strong> Direct Mac-to-Mac Migration Assistant restorations are generally not backward compatible when moving from Apple Silicon Macs to Intel-based Macs. This is due to architectural differences between Apple Silicon and Intel architectures, as applications installed on a Sillicon based Mac are not Intel compatible.</p>
                                     </div>
 
                                     <h5 class="mt-4">Steps:</h5>
                                     <ol class="fs-6">
-                                        <li class="mb-3"><strong>Initial Setup:</strong>Please make sure you have your Time Machine backup drive available and ready to plug in for restoration.</li>
-                                        <li class="mb-3"><strong>Remove Root Patches from System:</strong> Open the Open Core Legacy Patcher application
+                                        <li class="mb-3"><strong>Initial Setup:</strong> Please make sure you have your Time Machine backup drive available and ready to plug in for restoration.</li>
+                                        <li class="mb-3"><strong> Remove Root Patches from System:</strong> Open the Open Core Legacy Patcher application
                                             and navigate to "Post-Install Patch" option. Click to
                                             revert/uninstall the root patches. This completely removes all OCLP
                                             modifications from the system.</li>
-                                        <li class="mb-3"><strong>Mandatory Restart:</strong> Restart your iMac to ensure the root
+                                        <li class="mb-3"><strong> Mandatory Restart:</strong> Restart your iMac to ensure the root
                                             patch removal takes full effect.
                                         </li>
                                         <div class="alert-custom alert-warning-custom mt-3 mb-3">
-                                            <p class="mb-0"><strong>Expected Behavior:</strong> Your Mac will feel slow due to lack of OLCP graphics drivers, and WiFi will be unavailable. This is normal and expected. The sign of successful removal of OLCP Patches
+                                            <p class="mb-0"><strong> Expected Behavior:</strong> Your Mac will feel slow due to lack of OLCP graphics drivers, and WiFi will be unavailable. This is normal and expected. The sign of successful removal of OLCP Patches
                                             will be indicated by the white screen background, as gaphics acceleration drivers are temporarily removed.</p>
                                         </div>
-                                        <li class="mb-3"><strong>Use Migration Assistant Only After Restart:</strong> Once logged
+                                        <li class="mb-3"><strong> Use Migration Assistant Only After Restart:</strong> Once logged
                                             back in after the restart, launch Migration Assistant from System<strong> Settings > General > Transfer or Reset > Open Migration Assistant </strong> and proceed with the
                                             complete restoration process, if your Time Machine Backup drive is connected. Do not attempt to use Migration Assistant
                                             before completing the restart in <strong>Step 3, and successfully removing OLCP patches from your system.</strong></li>
-                                        <li class="mb-3"><strong>Reinstall Root Patches:</strong> After restoration is complete,
+                                        <li class="mb-3"><strong> Reinstall Root Patches:</strong> After restoration is complete,
                                             reopen the OCLP application and reinstall the root patches to restore full
                                             functionality via Post-Install Root Patches functionality.</li>
-                                        <li class="mb-3"><strong>Final Restart:</strong> Restart once more to complete the process
+                                        <li class="mb-3"><strong> Final Restart:</strong> Restart once more to complete the process
                                             with full OCLP functionality restored. Apply Post-Install Root Patches a second time if WiFi is avaliable, but if graphics acceleration is not fully restored, as Open Core Legacy Patcher will find, download and install the appropriate
                                         graphics drivers for your system whilst on WiFi.</li>
                                             <!-- Migration Assistant Image -->
