@@ -18,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css?v=2">
 
 
 </head>
@@ -229,9 +229,11 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-lg-8">
-                        <p class="lead">Congratulations on your professionally upgraded iMac! This Update and Usage Hub provides
+                        <p class="lead">Congratulations on your professionally upgraded iMac! This Update and Usage Hub
+                            provides
                             everything
-                            you need to know about keeping your custom built machine updated and running perfectly for years to come.
+                            you need to know about keeping your custom built machine updated and running perfectly for
+                            years to come.
                         </p>
                     </div>
                 </div>
@@ -261,12 +263,20 @@
                                 <div class="step-number step-number--warning">Important</div>
                                 <h3>An Important Note for all OpenCore Users</h3>
                                 <p>The most important rule for a stable system is to <strong>NOT use Automatic
-                                    Updates.</strong> macOS Update will remove OLCP custom drivers each time the system is updated.</p>
-                                <p class="mb-0">To prevent issues, we always use a safe manual update process. Please ensure the appropriate
-                                    toggles (<strong>Download new macOS updates when available</strong> and <strong>Install macOS updates</strong>) are OFF in <strong>System Settings > General > Software Update > App Updates and Security Responses</strong> by clicking the (i) button to show available options.</p>
+                                        Updates.</strong> macOS Update will remove OLCP custom drivers each time the
+                                    system is updated.</p>
+                                <p class="mb-0">To prevent issues, we always use a safe manual update process. Please
+                                    ensure the appropriate
+                                    toggles (<strong>Download new macOS updates when available</strong> and
+                                    <strong>Install macOS updates</strong>) are OFF in <strong>System Settings > General
+                                        > Software Update > App Updates and Security Responses</strong> by clicking the
+                                    (i) button to show available options.</p>
                                 <div class="text-center mt-4">
-                                    <img src="assets/images/manual-update-2.png" alt="Manual Updates Settings in macOS" class="img-fluid rounded border" style="max-width: 450px;">
-                                    <small class="text-muted d-block mt-1"><em>Ensure "Download new macOS updates when available" and "Install macOS updates" are turned off in System Settings.</em></small>
+                                    <img src="assets/images/manual-update-2.png" alt="Manual Updates Settings in macOS"
+                                        class="img-fluid rounded border" style="max-width: 450px;">
+                                    <small class="text-muted d-block mt-1"><em>Ensure "Download new macOS updates when
+                                            available" and "Install macOS updates" are turned off in System
+                                            Settings.</em></small>
                                 </div>
                             </div>
                             <div class="guide-card">
@@ -311,8 +321,10 @@
                                         to force a fresh backup before you begin the macOS update process.</li>
                                 </ol>
                                 <div class="text-center mt-4">
-                                    <img src="assets/images/time-machine-settings.png" alt="Time Machine Settings" class="img-fluid rounded border" style="max-width: 600px;">
-                                    <small class="text-muted d-block mt-1"><em>Time Machine settings in System Settings for reference.</em></small>
+                                    <img src="assets/images/time-machine-settings.png" alt="Time Machine Settings"
+                                        class="img-fluid rounded border" style="max-width: 600px;">
+                                    <small class="text-muted d-block mt-1"><em>Time Machine settings in System Settings
+                                            for reference.</em></small>
                                 </div>
                             </div>
                         </div>
@@ -326,57 +338,88 @@
 
                             <div class="guide-card">
                                 <div class="step-number">Step 1</div>
-                                <h3>Check for OCLP Prompts & Prepare</h3>
+                                <h3>Prepare and Install macOS Update</h3>
                                 <p>Before you do anything, open the <strong>OpenCore-Patcher</strong> app from your
-                                    Applications folder. OCLP will automatically check for updates and prompt you if its
-                                    own
-                                    application or bootloader is out of date. <strong>Always accept these updates
-                                        first.</strong></p>
-                                <p><strong>Pro-Tip:</strong> Sometimes, when you check for a macOS update in System
+                                    Applications folder. OCLP will automatically check for its application updates and
+                                    prompt you if its out of date. <strong>Always accept these updates first.</strong>
+                                </p>
+                                <h3>Proceed with Update</h3>
+                                <p>Once you have verified that Open Core application is up-to-date, you can proceed with
+                                    performing the Update. Go to <strong>System Settings > General >
+                                        Software Update</strong> and click "Update Now." Your iMac will download the
+                                    official update directly from Apple's servers and begin the installation, which may
+                                    involve several restarts. This is normal, <strong>and your machine will update by
+                                        itself, without the need for user input.</strong></p>
+                                <p><strong>Pro-Tip:</strong> When you start a macOS update in System
                                     Settings, OCLP will detect this and proactively prompt you to download necessary
                                     libraries in advance. If you see this prompt, accept it. This makes the final
                                     patching
-                                    step much faster.</p>
+                                    step much faster after the Update is done.</p>
+                                <div class="text-center mt-4 mb-4">
+                                    <img src="assets/images/open-core-update.PNG"
+                                        alt="OpenCore Legacy Patcher Update Prompt" class="img-fluid framed-image"
+                                        style="max-width: 380px;">
+                                    <small class="text-muted d-block mt-1"><em>Always accept OCLP updates when
+                                            prompted.</em></small>
+                                </div>
                             </div>
 
                             <div class="guide-card">
                                 <div class="step-number">Step 2</div>
-                                <h3>Install the macOS Update</h3>
-                                <p>Once OCLP is up-to-date, you can proceed. Go to <strong>System Settings > General >
-                                        Software Update</strong> and click "Update Now." Your iMac will download the
-                                    official update directly from Apple's servers and begin the installation, which may
-                                    involve several restarts. This is normal, <strong>and your machine will update by itself, without the need for user input.</strong></p>
-                            </div>
-
-                            <div class="guide-card">
-                                <div class="step-number">Step 3</div>
                                 <h3>Apply Post-Install Root Patches</h3>
-                                <p>This is the final and most important step. Each official update from Apple **wipes
-                                    the
-                                    custom drivers** needed for things like graphics and Wi-Fi to work on your iMac.
-                                    This
-                                    step reinstalls them.</p>
+                                <p>Each official macOS update from Apple <strong>wipes the custom drivers</strong> needed for components like graphics and Wi-Fi to function properly on your iMac. This final step reinstalls them.</p>
                                 <p>After the macOS update is complete, the OCLP app should <strong>automatically open
                                         and
                                         prompt you</strong> that "post-install root patches are required." Simply follow
                                     the
-                                    on-screen instructions to apply them. If it doesn't open automatically, just launch
-                                    it
-                                    yourself and click <strong>"Post-Install Root Patch."</strong> Reboot when prompted
-                                    to
-                                    complete the process.</p>
+                                    on-screen instructions to apply them and restart your system for patches to take
+                                    effect.</p>
+
+                                <div class="alert-custom alert-info-custom mt-3 mb-3">
+                                    <h5 class="mt-0">💡 Manual Root Patching</h5>
+                                    <p class="mb-0">If the OpenCore application does not automatically prompt you after
+                                        the update is complete, you can perform this step manually. Simply open the
+                                        <strong>Open Core</strong> application from your Applications or Dock and click
+                                        <strong>"Post-Install Root Patch."</strong> Reboot when prompted
+                                        to complete the process.</p>
+                                </div>
+
+                                <div class="text-center mt-4 mb-4">
+                                    <img src="assets/images/open-core.PNG" alt="OpenCore Legacy Patcher Main Menu"
+                                        class="img-fluid rounded border" style="max-width: 450px;">
+                                    <small class="text-muted d-block mt-1"><em>The main menu of the OpenCore Legacy
+                                            Patcher app.</em></small>
+                                </div>
+                                <div class="text-center mt-4">
+                                    <img src="assets/images/open-core-rootpatching.PNG"
+                                        alt="OCLP Post-Install Root Patch Menu" class="img-fluid rounded border"
+                                        style="max-width: 450px;">
+                                    <small class="text-muted d-block mt-1"><em>Click "Post-Install Root Patch" to
+                                            restore functionality.</em></small>
+                                </div>
                             </div>
                             <div class="guide-card guide-card-danger">
                                 <div class="step-number">Warning</div>
                                 <h5>⚠️ Important Note on macOS Tahoe Upgrades</h5>
-                                <p class="mb-2">At the moment, <strong>macOS Tahoe (26)</strong> is not yet stable for OCLP systems. The update will appear in your System Settings as shown below, but you must <strong>NOT</strong> install it yet.</p>
+                                <p class="mb-2">At the moment, <strong>macOS Tahoe (26)</strong> is not yet stable for
+                                    OCLP systems. The update will appear in your System Settings as shown below, but you
+                                    must <strong>NOT</strong> install it yet.</p>
                                 <div class="text-center my-4">
-                                     <img src="assets/images/tahoe-upgrade.PNG" alt="macOS Tahoe Upgrade Not Ready" class="img-fluid rounded border" style="max-width: 450px;">
-                                     <small class="text-muted d-block mt-1"><em>Example of the macOS Tahoe update prompt in System Settings.</em></small>
+                                    <img src="assets/images/tahoe-upgrade.PNG" alt="macOS Tahoe Upgrade Not Ready"
+                                        class="img-fluid rounded border" style="max-width: 450px;">
+                                    <small class="text-muted d-block mt-1"><em>Example of the macOS Tahoe update prompt
+                                            in System Settings.</em></small>
                                 </div>
-                                <p class="mt-3 mb-0">Attempting to upgrade now will lead to an unstable and unusable system. Please wait for the go-ahead on this guide before proceeding. All users will be informed here once it is safe to upgrade, which should be in Spring 2026, once the stable release has been fully tested.</p>
-                                <p class="mt-3 mb-0">General Apple enthusiasts and power user community sentiment is that macOS Tahoe 26 is not necessarily an improvement yet, even for non OLCP enabled Apple hardware kit.</p>
-                                <p class="mt-3 mb-0">As general advice, always make an informed decision, when considering OS upgrades regardless of make, model or device configuration you own.</p>
+                                <p class="mt-3 mb-0">Attempting to upgrade now will lead to an unstable and unusable
+                                    system. Please wait for the go-ahead on this guide before proceeding. All users will
+                                    be informed here once it is safe to upgrade, which should be in Spring 2026, once
+                                    the stable release has been fully tested.</p>
+                                <p class="mt-3 mb-0">General Apple enthusiasts and power user community sentiment is
+                                    that macOS Tahoe 26 is not necessarily an improvement yet, even for non OLCP enabled
+                                    Apple hardware kit.</p>
+                                <p class="mt-3 mb-0">As general advice, always make an informed decision, when
+                                    considering OS upgrades regardless of make, model or device configuration you own.
+                                </p>
                             </div>
                         </div>
                         <h3 class="text-center" style="border: none; margin-bottom: 2rem;" id="faq">Part 3: Frequently
@@ -394,29 +437,71 @@
                                     data-bs-parent="#faqAccordion">
                                     <div class="accordion-body">
                                         <h5>A Clear Guide to OpenCore Legacy Patcher (OCLP)</h5>
-                                        <p>At the heart of every modern, upgraded iMac I build is a brilliant piece of software called OpenCore Legacy Patcher, or OCLP. If you've ever wondered how it's possible to run the latest, most secure macOS on a machine that Apple no longer officially supports, this guide will explain the magic in a simple, technical way.</p>
+                                        <p>At the heart of every modern, upgraded iMac I build is a brilliant piece of
+                                            software called OpenCore Legacy Patcher, or OCLP. If you've ever wondered
+                                            how it's possible to run the latest, most secure macOS on a machine that
+                                            Apple no longer officially supports, this guide will explain the magic in a
+                                            simple, technical way.</p>
 
                                         <h6><strong>1. The Problem: The "Software Wall"</strong></h6>
-                                        <p>Every year, Apple releases a new version of macOS with new features and security updates. For business reasons, they also publish a list of Mac models that can officially run it. Typically, after about 6-8 years, older Macs are left behind and no longer receive these major upgrades, even though their hardware is often still incredibly capable.</p>
-                                        <p>This creates a "software wall" where perfectly good, high-quality machines are prevented from running modern software. This is the problem that OCLP was created to solve.</p>
+                                        <p>Every year, Apple releases a new version of macOS with new features and
+                                            security updates. For business reasons, they also publish a list of Mac
+                                            models that can officially run it. Typically, after about 6-8 years, older
+                                            Macs are left behind and no longer receive these major upgrades, even though
+                                            their hardware is often still incredibly capable.</p>
+                                        <p>This creates a "software wall" where perfectly good, high-quality machines
+                                            are prevented from running modern software. This is the problem that OCLP
+                                            was created to solve.</p>
 
                                         <h6><strong>2. The Solution: OCLP as the "Master Translator"</strong></h6>
-                                        <p>It's important to understand that OCLP is not a "hack" or a pirated piece of software.</p>
-                                        <p>Think of OCLP as a highly sophisticated translator. The new macOS speaks a new "language" that the older hardware doesn't fully understand. OCLP is a modern, open-source, and publicly audited tool that sits between them and translates in real-time, allowing them to communicate perfectly.</p>
-                                        <p>It is a bootloader, which means it's a small piece of software that runs for a few seconds right when you turn your Mac on, before macOS itself even starts.</p>
+                                        <p>It's important to understand that OCLP is not a "hack" or a pirated piece of
+                                            software.</p>
+                                        <p>Think of OCLP as a highly sophisticated translator. The new macOS speaks a
+                                            new "language" that the older hardware doesn't fully understand. OCLP is a
+                                            modern, open-source, and publicly audited tool that sits between them and
+                                            translates in real-time, allowing them to communicate perfectly.</p>
+                                        <p>It is a bootloader, which means it's a small piece of software that runs for
+                                            a few seconds right when you turn your Mac on, before macOS itself even
+                                            starts.</p>
 
                                         <h6><strong>3. How It Works: The Startup Process</strong></h6>
-                                        <p>The genius of OCLP is that its process is both powerful and non-invasive. It doesn't permanently change or damage your macOS installation. Here's a step-by-step look at what happens when you press the power button:</p>
-                                        <p><strong>Startup:</strong> When you turn on your iMac, the first thing it does is look for instructions on a tiny, hidden section of your main drive called the EFI partition.</p>
-                                        <p><strong>OCLP Loads First:</strong> I install the OCLP bootloader onto this partition. So, before macOS starts, OCLP loads into the computer's memory (RAM).</p>
-                                        <p><strong>Applying "In-Memory" Patches:</strong> For a few moments, OCLP creates a virtual environment in the memory. It applies a set of patches and instructions that essentially trick the official macOS installer into thinking it's running on a newer, supported machine.</p>
-                                        <p><strong>Booting Genuine macOS:</strong> With the translation layer active, the system then proceeds to load the 100% genuine, unmodified, and cryptographically signed version of macOS that was downloaded directly from Apple's servers.</p>
-                                        <p><strong>The Post-Install Root Patch (The Final, Crucial Step):</strong> This is the magic that makes everything work smoothly after you've logged in. Each official update from Apple wipes the custom drivers needed for things like graphics, Wi-Fi, and Bluetooth to work on your specific iMac. The OCLP application's final step is to run a "Post-Install Root Patch," which simply reinstalls these necessary drivers. This is why your graphics look beautiful and your Wi-Fi connects perfectly.</p>
+                                        <p>The genius of OCLP is that its process is both powerful and non-invasive. It
+                                            doesn't permanently change or damage your macOS installation. Here's a
+                                            step-by-step look at what happens when you press the power button:</p>
+                                        <p><strong>Startup:</strong> When you turn on your iMac, the first thing it does
+                                            is look for instructions on a tiny, hidden section of your main drive called
+                                            the EFI partition.</p>
+                                        <p><strong>OCLP Loads First:</strong> I install the OCLP bootloader onto this
+                                            partition. So, before macOS starts, OCLP loads into the computer's memory
+                                            (RAM).</p>
+                                        <p><strong>Applying "In-Memory" Patches:</strong> For a few moments, OCLP
+                                            creates a virtual environment in the memory. It applies a set of patches and
+                                            instructions that essentially trick the official macOS installer into
+                                            thinking it's running on a newer, supported machine.</p>
+                                        <p><strong>Booting Genuine macOS:</strong> With the translation layer active,
+                                            the system then proceeds to load the 100% genuine, unmodified, and
+                                            cryptographically signed version of macOS that was downloaded directly from
+                                            Apple's servers.</p>
+                                        <p><strong>The Post-Install Root Patch (The Final, Crucial Step):</strong> This
+                                            is the magic that makes everything work smoothly after you've logged in.
+                                            Each official update from Apple wipes the custom drivers needed for things
+                                            like graphics, Wi-Fi, and Bluetooth to work on your specific iMac. The OCLP
+                                            application's final step is to run a "Post-Install Root Patch," which simply
+                                            reinstalls these necessary drivers. This is why your graphics look beautiful
+                                            and your Wi-Fi connects perfectly.</p>
 
                                         <h6><strong>4. The Result: What This Means For You</strong></h6>
-                                        <p><strong>A Modern Experience:</strong> You get to use the latest features, run the newest applications, and receive critical security updates on a budget-friendly machine.</p>
-                                        <p><strong>Excellent Performance:</strong> Because the core macOS is genuine and the OCLP process has a negligible impact on performance, the speed you experience is a direct result of the high-quality hardware upgrades, like the mandatory SSD.</p>
-                                        <p><strong>Safety and Stability:</strong> The process is transparent, community-vetted, and doesn't permanently alter the core operating system, making it a reliable and stable solution for extending the life of your iMac.</p>
+                                        <p><strong>A Modern Experience:</strong> You get to use the latest features, run
+                                            the newest applications, and receive critical security updates on a
+                                            budget-friendly machine.</p>
+                                        <p><strong>Excellent Performance:</strong> Because the core macOS is genuine and
+                                            the OCLP process has a negligible impact on performance, the speed you
+                                            experience is a direct result of the high-quality hardware upgrades, like
+                                            the mandatory SSD.</p>
+                                        <p><strong>Safety and Stability:</strong> The process is transparent,
+                                            community-vetted, and doesn't permanently alter the core operating system,
+                                            making it a reliable and stable solution for extending the life of your
+                                            iMac.</p>
                                     </div>
                                 </div>
                             </div>
@@ -430,11 +515,21 @@
                                 <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                                     data-bs-parent="#faqAccordion">
                                     <div class="accordion-body">
-                                        <p>Yes, absolutely. My goal is to ensure your iMac has a long and useful life, and this covers both minor updates and major yearly upgrades.</p>
-                                        <p>For regular updates (e.g., from macOS Sequoia 15.7.1 to 15.7.2), you can use the simple, manual update process that I outline in the Update and Usage Guide I provide upon purchase.</p>
-                                        <p>For major yearly OS upgrades (e.g., to the next version, macOS 26 "Tahoe"), the answer is also yes. However, it is crucial not to upgrade on release day.</p>
-                                        <p>I personally test these major upgrades and will give my clients the go-ahead once I've confirmed it's stable, reliable and performant, usually 3 months after release day. Status updates are communicated via my online Update and Usage Guide provided upon purchase.</p>
-                                        <p>Although currently available to manually Upgrade, macOS 26 Tahoe is still in early stages development and testing with a view for a stable upgrade Spring 2026.</p>
+                                        <p>Yes, absolutely. My goal is to ensure your iMac has a long and useful life,
+                                            and this covers both minor updates and major yearly upgrades.</p>
+                                        <p>For regular updates (e.g., from macOS Sequoia 15.7.1 to 15.7.2), you can use
+                                            the simple, manual update process that I outline in the Update and Usage
+                                            Guide I provide upon purchase.</p>
+                                        <p>For major yearly OS upgrades (e.g., to the next version, macOS 26 "Tahoe"),
+                                            the answer is also yes. However, it is crucial not to upgrade on release
+                                            day.</p>
+                                        <p>I personally test these major upgrades and will give my clients the go-ahead
+                                            once I've confirmed it's stable, reliable and performant, usually 3 months
+                                            after release day. Status updates are communicated via my online Update and
+                                            Usage Guide provided upon purchase.</p>
+                                        <p>Although currently available to manually Upgrade, macOS 26 Tahoe is still in
+                                            early stages development and testing with a view for a stable upgrade Spring
+                                            2026.</p>
                                     </div>
                                 </div>
                             </div>
@@ -449,8 +544,11 @@
                                 <div id="collapseThree" class="accordion-collapse collapse"
                                     aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
                                     <div class="accordion-body">
-                                        <p><strong>Updates</strong> are installations of minor OS releases, versioned by incremental improvements, bug fixes and security patching of the same Operating System (e.g., from macOS Sequoia 15.7.1 to 15.7.2).</p>
-                                        <p><strong>Upgrades</strong> are major, potentially yearly (eg. macOS) releases of new OS'es (e.g., from macOS Sequoia to macOS Tahoe).</p>
+                                        <p><strong>Updates</strong> are installations of minor OS releases, versioned by
+                                            incremental improvements, bug fixes and security patching of the same
+                                            Operating System (e.g., from macOS Sequoia 15.7.1 to 15.7.2).</p>
+                                        <p><strong>Upgrades</strong> are major, potentially yearly (eg. macOS) releases
+                                            of new OS'es (e.g., from macOS Sequoia to macOS Tahoe).</p>
                                     </div>
                                 </div>
                             </div>
@@ -462,8 +560,8 @@
                                         What do I do if something goes wrong after an update?
                                     </button>
                                 </h2>
-                                <div id="collapseFour" class="accordion-collapse collapse"
-                                    aria-labelledby="headingFour" data-bs-parent="#faqAccordion">
+                                <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                                    data-bs-parent="#faqAccordion">
                                     <div class="accordion-body">
                                         <p>Your Time Machine backup is your ultimate safety net. You can boot into macOS
                                             Recovery (by holding Command+R at startup) and restore your Mac to its exact
@@ -477,13 +575,13 @@
                     </div>
                 </div>
 
-                <!-- macOS Update Management Guide -->
-                <div class="row justify-content-center mb-5" id="macos-update">                <!-- Dual Boot and Windows 11 Management Guide -->
+                <!-- Dual Boot and Windows 11 Management Guide -->
                 <div class="row justify-content-center mb-5" id="dual-boot">
                     <div class="col-lg-10">
                         <h2 class="text-center">Dual Boot and Windows 11 Management Guide</h2>
                         <div class="content-block content-block--grey">
-                            <p class="text-center mb-4">If your iMac is pre-configured to run both macOS and Windows, giving
+                            <p class="text-center mb-4">If your iMac is pre-configured to run both macOS and Windows,
+                                giving
                                 you
                                 the best of both worlds, this guide explains how to switch between them and handle
                                 updates for both systems.
@@ -501,7 +599,8 @@
                                     <li><strong>Wait for the Boot Picker:</strong> After a moment, you will see the
                                         OpenCore
                                         boot picker screen, showing icons for macOS and Windows.</li>
-                                    <li><strong>Stop the Timer:</strong> The system automatically boots into the default OS after 5 seconds. To stop the timer, **press any arrow key**.
+                                    <li><strong>Stop the Timer:</strong> The system automatically boots into the default
+                                        OS after 5 seconds. To stop the timer, **press any arrow key**.
                                     </li>
                                     <li><strong>Select and Boot:</strong> Once the timer is stopped, use the left and
                                         right
@@ -523,13 +622,18 @@
 
                                 <p class="mt-4"><strong>Updating macOS:</strong> To update your
                                     macOS
-                                    installation on your dual-boot system, you must follow the *exact same procedure* detailed in
-                                    the "macOS Update and Upgrade Procedure" section above. This ensures the OpenCore Legacy
-                                    Patcher configuration remains correct. <a href="#update-process" style="color: var(--color-accent-blue); text-decoration: none;">Back to macOS Update Process</a></p>
+                                    installation on your dual-boot system, you must follow the *exact same procedure*
+                                    detailed in
+                                    the "macOS Update and Upgrade Procedure" section above. This ensures the OpenCore
+                                    Legacy
+                                    Patcher configuration remains correct. <a href="#update-process"
+                                        style="color: var(--color-accent-blue); text-decoration: none;">Back to macOS
+                                        Update Process</a></p>
 
                                 <!-- Apple Software Update for Boot Camp Drivers -->
                                 <h4 class="mt-4">Keeping Apple hardware drivers updated on Windows</h4>
-                                <p class="mb-2">For optimal performance in Windows, it's important to keep your hardware drivers current. Apple provides a simple tool for this.</p>
+                                <p class="mb-2">For optimal performance in Windows, it's important to keep your hardware
+                                    drivers current. Apple provides a simple tool for this.</p>
 
                                 <h5 class="mt-4"><strong>Using Apple Software Update:</strong></h5>
                                 <ol class="fs-6">
@@ -537,8 +641,7 @@
                                         for "Apple Software Update" or find it in the Boot Camp Control Panel.
                                         <div class="mt-2 mb-3 text-center">
                                             <img src="assets/images/apple-software-updater.png"
-                                                alt="Apple Software Update Application"
-                                                class="img-fluid rounded border"
+                                                alt="Apple Software Update Application" class="img-fluid rounded border"
                                                 style="max-width: 600px; height: auto;">
                                             <small class="text-muted d-block mt-1"><em>Apple Software Update
                                                     application showing available driver and support software
@@ -560,7 +663,7 @@
 
                                 <!-- NEW WINDOWS 11 NOTE -->
                                 <div class="alert-custom alert-info-custom mt-4">
-                                    <h5>⚠️ Important Note for Windows 11 Users</h5>
+                                    <h5 class="mt-0">⚠️ Important Note for Windows 11 Users</h5>
                                     <p class="mb-0" style="font-size: 1rem;">To ensure system stability, it is important
                                         to
                                         manage a specific setting within the Microsoft PowerToys application. Please
@@ -572,7 +675,11 @@
                                         it
                                         and ensure it remains active.</p>
 
-                                    <p class="mt-3 mb-2" style="font-size: 1rem;"><strong>Download PowerToys:</strong> If you need to download and install Microsoft PowerToys, you can get it from the Microsoft Store: <a href="https://apps.microsoft.com/detail/xp89dcgq3k6vld?hl=en-US&gl=US" target="_blank" class="text-decoration-none">Microsoft PowerToys</a></p>
+                                    <p class="mt-3 mb-2" style="font-size: 1rem;"><strong>Download PowerToys:</strong>
+                                        If you need to download and install Microsoft PowerToys, you can get it from the
+                                        Microsoft Store: <a
+                                            href="https://apps.microsoft.com/detail/xp89dcgq3k6vld?hl=en-US&gl=US"
+                                            target="_blank" class="text-decoration-none">Microsoft PowerToys</a></p>
 
                                     <h6 class="mt-3"><strong>Configuring PowerToys Awake Settings:</strong></h6>
                                     <ol style="font-size: 0.95rem; margin-bottom: 1rem;">
@@ -624,25 +731,44 @@
                                 <!-- AMD Radeon Pro Drivers Note -->
                                 <div class="mt-5">
                                     <h5>AMD Enterprise Radeon Pro Graphics Driver for Bootcamp</h5>
-                                    <p class="mb-3">For users with AMD Radeon Pro GPUs (specifically <strong>AMD Radeon Pro 570, Radeon Pro 575, or Radeon Pro 580</strong>), the <strong>AMD Enterprise Radeon Pro Graphics Driver</strong> provides enhanced GPU settings and features for Windows 11 only. These drivers are designed to optimize performance and stability for your specific hardware in a Bootcamp (Windows 11) environment.</p>
-                                    
-                                    <p class="mb-3"><strong>Please Note:</strong> These drivers are <strong>not installed by default</strong>. If you wish to take advantage of these enhanced features, you will need to download and install them manually from AMD product drivers page. You can <a href="https://www.amd.com/en/resources/support-articles/release-notes/Apple-Boot-Camp.html" target="_blank">download the AMD Radeon Pro Drivers here</a>.</p>
-                                    
+                                    <p class="mb-3">For users with AMD Radeon Pro GPUs (specifically <strong>AMD Radeon
+                                            Pro 570, Radeon Pro 575, or Radeon Pro 580</strong>), the <strong>AMD
+                                            Enterprise Radeon Pro Graphics Driver</strong> provides enhanced GPU
+                                        settings and features for Windows 11 only. These drivers are designed to
+                                        optimize performance and stability for your specific hardware in a Bootcamp
+                                        (Windows 11) environment.</p>
+
+                                    <p class="mb-3"><strong>Please Note:</strong> These drivers are <strong>not
+                                            installed by default</strong>. If you wish to take advantage of these
+                                        enhanced features, you will need to download and install them manually from AMD
+                                        product drivers page. You can <a
+                                            href="https://www.amd.com/en/resources/support-articles/release-notes/Apple-Boot-Camp.html"
+                                            target="_blank">download the AMD Radeon Pro Drivers here</a>.</p>
+
                                     <ul>
-                                        <li><strong>Link:</strong> https://www.amd.com/en/resources/support-articles/release-notes/Apple-Boot-Camp.html</li>
+                                        <li><strong>Link:</strong>
+                                            https://www.amd.com/en/resources/support-articles/release-notes/Apple-Boot-Camp.html
+                                        </li>
                                     </ul>
 
                                     <div class="row g-3 mt-4">
                                         <div class="col-md-6">
                                             <div class="text-center">
-                                                <img src="assets/images/radeon-pro-1.jpg" alt="AMD Radeon Pro Software Interface" class="img-fluid rounded border" style="width: 100%; height: 250px; object-fit: cover;">
-                                                <small class="text-muted d-block mt-2"><em>AMD Radeon Pro Software Interface</em></small>
+                                                <img src="assets/images/radeon-pro-1.jpg"
+                                                    alt="AMD Radeon Pro Software Interface"
+                                                    class="img-fluid rounded border"
+                                                    style="width: 100%; height: 250px; object-fit: cover;">
+                                                <small class="text-muted d-block mt-2"><em>AMD Radeon Pro Software
+                                                        Interface</em></small>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="text-center">
-                                                <img src="assets/images/radeon-pro-2.avif" alt="GPU Performance Monitoring" class="img-fluid rounded border" style="width: 100%; height: 250px; object-fit: cover;">
-                                                <small class="text-muted d-block mt-2"><em>GPU Performance Monitoring</em></small>
+                                                <img src="assets/images/radeon-pro-2.avif"
+                                                    alt="GPU Performance Monitoring" class="img-fluid rounded border"
+                                                    style="width: 100%; height: 250px; object-fit: cover;">
+                                                <small class="text-muted d-block mt-2"><em>GPU Performance
+                                                        Monitoring</em></small>
                                             </div>
                                         </div>
                                     </div>
@@ -657,62 +783,97 @@
                     <div class="col-lg-10">
                         <h2 class="text-center">User Account Management Guide</h2>
                         <div class="content-block content-block--green">
-                            <p class="text-center mb-4">Managing user accounts on your dual-boot iMac involves understanding both macOS and Windows 11 user management. This guide covers account setup, security, and best practices for both operating systems.</p>
+                            <p class="text-center mb-4">Managing user accounts on your dual-boot iMac involves
+                                understanding both macOS and Windows 11 user management. This guide covers account
+                                setup, security, and best practices for both operating systems.</p>
 
                             <div class="guide-card" id="account-setup">
                                 <div class="step-number">Setup</div>
                                 <h3>Creating and Managing User Accounts</h3>
-                                <p>Your iMac supports all standard user account types and management features for both macOS and Windows 11. Here's how to properly set up and manage user accounts on both systems:</p>
-                                
+                                <p>Your iMac supports all standard user account types and management features for both
+                                    macOS and Windows 11. Here's how to properly set up and manage user accounts on both
+                                    systems:</p>
+
                                 <h5 class="mt-4">macOS - Adding New User Accounts:</h5>
                                 <ol class="fs-6">
-                                    <li><strong>Open System Settings:</strong> Click the Apple menu > System Settings (or System Preferences on older macOS versions).</li>
-                                    <li><strong>Navigate to Users & Groups:</strong> Look for "Users & Groups" in the sidebar or main settings area.</li>
-                                    <li><strong>Authenticate:</strong> Click the lock icon and enter your administrator password to make changes.</li>
+                                    <li><strong>Open System Settings:</strong> Click the Apple menu > System Settings
+                                        (or System Preferences on older macOS versions).</li>
+                                    <li><strong>Navigate to Users & Groups:</strong> Look for "Users & Groups" in the
+                                        sidebar or main settings area.</li>
+                                    <li><strong>Authenticate:</strong> Click the lock icon and enter your administrator
+                                        password to make changes.</li>
                                     <li><strong>Add User:</strong> Click the "+" button to add a new user account.</li>
-                                    <li><strong>Choose Account Type:</strong> Select from Administrator, Standard, or Managed with Parental Controls.</li>
-                                    <li><strong>Complete Setup:</strong> Fill in the required information (name, account name, password, and password hint* optional).</li>
+                                    <li><strong>Choose Account Type:</strong> Select from Administrator, Standard, or
+                                        Managed with Parental Controls.</li>
+                                    <li><strong>Complete Setup:</strong> Fill in the required information (name, account
+                                        name, password, and password hint* optional).</li>
                                 </ol>
 
                                 <h5 class="mt-4">Windows 11 - Adding New User Accounts:</h5>
                                 <ol class="fs-6">
-                                    <li><strong>Open Settings:</strong> Press Windows key + I, or click Start > Settings.</li>
-                                    <li><strong>Navigate to Accounts:</strong> Click on "Accounts" in the left sidebar.</li>
-                                    <li><strong>Access Family & Users:</strong> Click "Family & other users" in the account settings.</li>
-                                    <li><strong>Add Account:</strong> Click "Add someone else to this PC" under "Other users".</li>
-                                    <li><strong>Choose Account Type:</strong> Select "I don't have this person's sign-in information" then "Add a user without a Microsoft account" for local accounts.</li>
-                                    <li><strong>Complete Setup:</strong> Enter username, password, and security questions for the new account.</li>
-                                    <li><strong>Set Account Type:</strong> After creation, click the account and choose "Change account type" to set as Administrator or Standard User.</li>
+                                    <li><strong>Open Settings:</strong> Press Windows key + I, or click Start >
+                                        Settings.</li>
+                                    <li><strong>Navigate to Accounts:</strong> Click on "Accounts" in the left sidebar.
+                                    </li>
+                                    <li><strong>Access Family & Users:</strong> Click "Family & other users" in the
+                                        account settings.</li>
+                                    <li><strong>Add Account:</strong> Click "Add someone else to this PC" under "Other
+                                        users".</li>
+                                    <li><strong>Choose Account Type:</strong> Select "I don't have this person's sign-in
+                                        information" then "Add a user without a Microsoft account" for local accounts.
+                                    </li>
+                                    <li><strong>Complete Setup:</strong> Enter username, password, and security
+                                        questions for the new account.</li>
+                                    <li><strong>Set Account Type:</strong> After creation, click the account and choose
+                                        "Change account type" to set as Administrator or Standard User.</li>
                                 </ol>
 
                                 <div class="alert-custom alert-info-custom mt-4">
-                                    <h5>💡 Dual-Boot Consideration</h5>
-                                    <p class="mb-0"><strong>macOS:</strong> All new user accounts will automatically benefit from all OCLP enhancements including graphics acceleration, Wi-Fi functionality, and any other post-install patches, as the OCLP configuration is installed globally on your system.<br><br>
-                                    <strong>Windows 11:</strong> New user accounts will have access to all pre-configured Windows applications including PowerToys but the Awake functionality needs to be configured for each User account individually.</p>
+                                    <h5 class="mt-0">💡 Dual-Boot Consideration</h5>
+                                    <p class="mb-0"><strong>macOS:</strong> All new user accounts will automatically
+                                        benefit from all OCLP enhancements including graphics acceleration, Wi-Fi
+                                        functionality, and any other post-install patches, as the OCLP configuration is
+                                        installed globally on your system.<br><br>
+                                        <strong>Windows 11:</strong> New user accounts will have access to all
+                                        pre-configured Windows applications including PowerToys but the Awake
+                                        functionality needs to be configured for each User account individually.
+                                    </p>
                                 </div>
                             </div>
 
                             <div class="guide-card" id="account-security">
                                 <div class="step-number">Security</div>
                                 <h3>Account Security & Best Practices Advice</h3>
-                                <p>Securing user accounts on both macOS and Windows 11 is essential for protecting your data and maintaining system integrity. Here are platform-specific security recommendations for your macOS and/or Windows 11 iMac:</p>
+                                <p>Securing user accounts on both macOS and Windows 11 is essential for protecting your
+                                    data and maintaining system integrity. Here are platform-specific security
+                                    recommendations for your macOS and/or Windows 11 iMac:</p>
 
                                 <h5 class="mt-4">macOS Security Settings:</h5>
                                 <ul class="fs-6">
-                                    <li><strong>Strong Passwords:</strong> Use unique, complex passwords for each account. Consider using the built-in password manager.</li>
-                                    <li><strong>Two-Factor Authentication:</strong> Enable 2FA for Apple ID accounts used on the system.</li>
-                                    <li><strong>Automatic Login:</strong> Disable automatic login for security, especially on shared machines.</li>
-                                    <li><strong>Screen Lock:</strong> Set up screen saver password requirements after a reasonable timeout period.</li>
-                                    <li><strong>Guest Account:</strong> Disable the guest account if not needed for security.</li>
+                                    <li><strong>Strong Passwords:</strong> Use unique, complex passwords for each
+                                        account. Consider using the built-in password manager.</li>
+                                    <li><strong>Two-Factor Authentication:</strong> Enable 2FA for Apple ID accounts
+                                        used on the system.</li>
+                                    <li><strong>Automatic Login:</strong> Disable automatic login for security,
+                                        especially on shared machines.</li>
+                                    <li><strong>Screen Lock:</strong> Set up screen saver password requirements after a
+                                        reasonable timeout period.</li>
+                                    <li><strong>Guest Account:</strong> Disable the guest account if not needed for
+                                        security.</li>
                                 </ul>
 
                                 <h5 class="mt-4">Windows 11 Security Settings:</h5>
                                 <ul class="fs-6">
-                                    <li><strong>Microsoft Defender:</strong> Ensure Windows Defender is active and updated.</li>
-                                    <li><strong>User Account Control (UAC):</strong> Keep UAC enabled to prevent unauthorized changes.</li>
-                                    <li><strong>Microsoft Account vs Local:</strong> Choose based on your privacy preferences and sync needs.</li>
-                                    <li><strong>Windows Updates:</strong> Enable automatic security updates for critical patches.</li>
-                                    <li><strong>Family Safety:</strong> Use Microsoft Family features for child accounts and screen time management.</li>
+                                    <li><strong>Microsoft Defender:</strong> Ensure Windows Defender is active and
+                                        updated.</li>
+                                    <li><strong>User Account Control (UAC):</strong> Keep UAC enabled to prevent
+                                        unauthorized changes.</li>
+                                    <li><strong>Microsoft Account vs Local:</strong> Choose based on your privacy
+                                        preferences and sync needs.</li>
+                                    <li><strong>Windows Updates:</strong> Enable automatic security updates for critical
+                                        patches.</li>
+                                    <li><strong>Family Safety:</strong> Use Microsoft Family features for child accounts
+                                        and screen time management.</li>
                                 </ul>
 
                                 <h5 class="mt-4">Disk Encryption for Both Systems:</h5>
@@ -720,29 +881,43 @@
                                     <div class="col-md-6">
                                         <h6>macOS - FileVault:</h6>
                                         <ol class="fs-6">
-                                            <li><strong>Enable FileVault:</strong> Go to System Settings > Privacy & Security > FileVault.</li>
-                                            <li><strong>Choose Recovery Method:</strong> Select either iCloud account recovery or create a recovery key.</li>
-                                            <li><strong>Important:</strong> Store your recovery key securely - you'll need it if you forget your password.</li>
-                                            <li><strong>Restart Required:</strong> FileVault encryption begins after restart and continues in the background.</li>
+                                            <li><strong>Enable FileVault:</strong> Go to System Settings > Privacy &
+                                                Security > FileVault.</li>
+                                            <li><strong>Choose Recovery Method:</strong> Select either iCloud account
+                                                recovery or create a recovery key.</li>
+                                            <li><strong>Important:</strong> Store your recovery key securely - you'll
+                                                need it if you forget your password.</li>
+                                            <li><strong>Restart Required:</strong> FileVault encryption begins after
+                                                restart and continues in the background.</li>
                                         </ol>
                                     </div>
                                     <div class="col-md-6">
                                         <h6>Windows 11 - BitLocker (Needs Pro license):</h6>
                                         <ol class="fs-6">
-                                            <li><strong>Enable BitLocker:</strong> Go to Settings > System > Storage > Advanced storage settings > Disk & volumes.</li>
-                                            <li><strong>Select Drive:</strong> Click your Windows drive and select "Turn on BitLocker".</li>
-                                            <li><strong>Backup Recovery Key:</strong> Save your recovery key to a secure location (not on the encrypted drive).</li>
-                                            <li><strong>Encryption Process:</strong> BitLocker will encrypt in the background while you continue using Windows.</li>
+                                            <li><strong>Enable BitLocker:</strong> Go to Settings > System > Storage >
+                                                Advanced storage settings > Disk & volumes.</li>
+                                            <li><strong>Select Drive:</strong> Click your Windows drive and select "Turn
+                                                on BitLocker".</li>
+                                            <li><strong>Backup Recovery Key:</strong> Save your recovery key to a secure
+                                                location (not on the encrypted drive).</li>
+                                            <li><strong>Encryption Process:</strong> BitLocker will encrypt in the
+                                                background while you continue using Windows.</li>
                                         </ol>
                                     </div>
                                 </div>
 
                                 <div class="alert-custom alert-warning-custom mt-4">
-                                    <h5>⚠️ Administrator Accounts (general advice):</h5>
+                                    <h5 class="mt-0">⚠️ Administrator Accounts (general advice):</h5>
                                     <ul class="mb-0">
-                                        <li class="mb-2">Always maintain full access to at least one Administrator account with a known password on both operating systems.</li>
-                                        <li class="mb-2">All computers, regardless of make and model have Administrative, Standard (restricted) and Guest (most restricted) Accounts built in by default.</li>
-                                        <li>You as the Owner and User of the system have the ability to create, enable, disable and remove these features and accounts. A computer cannot and will not function without at least one Administrator account built in, which cannot be removed.</li>
+                                        <li class="mb-2">Always maintain full access to at least one Administrator
+                                            account with a known password on both operating systems.</li>
+                                        <li class="mb-2">All computers, regardless of make and model have
+                                            Administrative, Standard (restricted) and Guest (most restricted) Accounts
+                                            built in by default.</li>
+                                        <li>You as the Owner and User of the system have the ability to create, enable,
+                                            disable and remove these features and accounts. A computer cannot and will
+                                            not function without at least one Administrator account built in, which
+                                            cannot be removed.</li>
                                     </ul>
                                 </div>
 
@@ -753,7 +928,8 @@
                                         <ol class="fs-6">
                                             <li>Go to System Settings > Users & Groups</li>
                                             <li>Click "Login Options" in the sidebar</li>
-                                            <li>Enable "Show fast user switching menu as" and choose your preferred display option</li>
+                                            <li>Enable "Show fast user switching menu as" and choose your preferred
+                                                display option</li>
                                         </ol>
                                     </div>
                                     <div class="col-md-6">
@@ -766,249 +942,414 @@
                                     </div>
                                 </div>
                                 </ol>
+                                v>
                             </div>
                         </div>
-                    </div>
-                </div>
 
-                <!-- Time Machine Restore Guide -->
-                <div class="row justify-content-center mb-5" id="time-machine-restore">
-                    <div class="col-lg-10">
-                        <h2 class="text-center">Time Machine Restore Guide</h2>
-                        <div class="content-block content-block--blue">
-                            <p class="text-center mb-4">Restoring from Time Machine backups on OCLP systems requires a
-                                special procedure to ensure complete restoration without issues. This guide covers the
-                                recommended method for full system restoration.</p>
+                        <!-- Time Machine Restore Guide -->
+                        <div class="row justify-content-center mb-5" id="time-machine-restore">
+                            <div class="col-lg-10">
+                                <h2 class="text-center">Time Machine Restore Guide</h2>
+                                <div class="content-block content-block--blue">
+                                    <p class="text-center mb-4">Restoring from Time Machine backups on OCLP systems
+                                        requires a
+                                        special procedure to ensure complete restoration without issues. This guide
+                                        covers the
+                                        recommended method for full system restoration.</p>
 
-                            <!-- Important Warnings Section -->
-                            <div class="alert-custom alert-warning-custom mb-4" id="restore-warnings">
-                                <h5>⚠️ Important Information Before Restoring</h5>
-                                <ul class="mb-0">
-                                    <li><strong>Root Patches Impact:</strong> OCLP root patches can interfere with Time
-                                        Machine restoration and may cause kernel panics. Please follow the below steps accordingly for a successful Time Machine restoration.</li>
-                                    <li><strong>System Requirements:</strong> Full restoration is only supported on
-                                        Monterey and newer. Big Sur does not support snapshot reversion.</li>
-                                    <li><strong>Network Drives:</strong> If your backup is on a network drive, ensure
-                                        Ethernet connectivity as WiFi will be unavailable during the restoration process.</li>
-                                </ul>
-                            </div>
-
-                            <div id="restore-methods">
-                                <div class="guide-card">
-                                    <div class="step-number">Process</div>
-                                    <h3>Complete Time Machine Restoration</h3>
-                                    <p>This method provides complete and safe system restoration, restoring everything exactly as
-                                        it was, including all files and system configurations. To be used if migrating from one Mac to another Mac, or for simply restoring a current backup from your Time Machine to your Mac.</p>
-
-                                    <div class="alert-custom alert-info-custom mb-3">
-                                        <h5>📋 Requirements</h5>
-                                        <p class="mb-3">Your Time Machine Backup Drive (must have) and recommended use of wired keyboard and mouse for the procedure.</p>
-                                        <p class="mb-3">Requires macOS Monterey or newer. Your Mac will temporarily run
-                                            slower with reduced functionality during the process of temporarily remove OLCP patches from your system.</p>
-                                        <p class="mb-0"><strong>DO NOT</strong> restore the backup before following the below steps. Restoring from a Time Machine Backup without first removing OLCP patches will render your restoration on your machine unusable. 
-                                            Time Machine external backup drives are never affected themselves by failed Migration Assistant restorations as they are immutable backups.</p>
-                                        <p class="mb-0 mt-3"><strong>Important Note on Apple Sillicon Compatibility:</strong> Direct Mac-to-Mac Migration Assistant restorations are generally not backward compatible when moving from Apple Silicon Macs to Intel-based Macs. This is due to architectural differences between Apple Silicon and Intel architectures, as applications installed on a Sillicon based Mac are not Intel compatible.</p>
-                                    </div>
-
-                                    <h5 class="mt-4">Steps:</h5>
-                                    <ol class="fs-6">
-                                        <li class="mb-3"><strong>Initial Setup:</strong> Please make sure you have your Time Machine backup drive available and ready to plug in for restoration.</li>
-                                        <li class="mb-3"><strong> Remove Root Patches from System:</strong> Open the Open Core Legacy Patcher application
-                                            and navigate to "Post-Install Patch" option. Click to
-                                            revert/uninstall the root patches. This completely removes all OCLP
-                                            modifications from the system.</li>
-                                        <li class="mb-3"><strong> Mandatory Restart:</strong> Restart your iMac to ensure the root
-                                            patch removal takes full effect.
-                                        </li>
-                                        <div class="alert-custom alert-warning-custom mt-3 mb-3">
-                                            <p class="mb-0"><strong> Expected Behavior:</strong> Your Mac will feel slow due to lack of OLCP graphics drivers, and WiFi will be unavailable. This is normal and expected. The sign of successful removal of OLCP Patches
-                                            will be indicated by the white screen background, as gaphics acceleration drivers are temporarily removed.</p>
-                                        </div>
-                                        <li class="mb-3"><strong> Use Migration Assistant Only After Restart:</strong> Once logged
-                                            back in after the restart, launch Migration Assistant from System<strong> Settings > General > Transfer or Reset > Open Migration Assistant </strong> and proceed with the
-                                            complete restoration process, if your Time Machine Backup drive is connected. Do not attempt to use Migration Assistant
-                                            before completing the restart in <strong>Step 3, and successfully removing OLCP patches from your system.</strong></li>
-                                        <li class="mb-3"><strong> Reinstall Root Patches:</strong> After restoration is complete,
-                                            reopen the OCLP application and reinstall the root patches to restore full
-                                            functionality via Post-Install Root Patches functionality.</li>
-                                        <li class="mb-3"><strong> Final Restart:</strong> Restart once more to complete the process
-                                            with full OCLP functionality restored. Apply Post-Install Root Patches a second time if WiFi is avaliable, but if graphics acceleration is not fully restored, as Open Core Legacy Patcher will find, download and install the appropriate
-                                        graphics drivers for your system whilst on WiFi.</li>
-                                            <!-- Migration Assistant Image -->
-                                            <div class="text-center my-4">
-                                                <div class="row g-4 mb-4">
-                                                    <div class="col-md-6">
-                                                        <img src="assets/images/migration-assistant.webp" alt="Migration Assistant Start" class="img-fluid rounded border gallery-image" style="max-width: 100%; height: auto;">
-                                                        <small class="text-muted d-block mt-2"><em>Initial Migration Assistant screen.</em></small>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <img src="assets/images/migration-assistant-2.jpg" alt="Migration Assistant Restore from Time Machine" class="img-fluid rounded border gallery-image" style="max-width: 100%; height: auto;">
-                                                        <small class="text-muted d-block mt-2"><em>Select to restore from a Time Machine backup.</em></small>
-                                                    </div>
-                                                </div>
-                                                <img src="assets/images/time-machine-restore.jpg"
-                                                    alt="Migration Assistant Transfer Options" class="img-fluid rounded border gallery-image"
-                                                    style="max-width: 100%; height: auto;">
-                                                <small class="text-muted d-block mt-2"><em>Migration Assistant showing transfer options
-                                                        during the restoration process</em></small>
-                                            </div>
-                                        </li>
-                                    </ol>
-                                    <p class="mt-3"><em>This method provides a complete and safe restoration, but requires temporary
-                                            removal and reinstallation of Open Core root patches, which include removing graphics acceleration and WiFi functionalities.</em></p>
-                                </div>
-
-                                <div class="guide-card">
-                                    <div class="step-number">Troubleshooting</div>
-                                    <h3>Common Issues and Solutions</h3>
-                                    <ul class="fs-6">
-                                        <li><strong>Sequoia Restore Loops:</strong> If you encounter "Migration
-                                            Finished" loops on Sequoia, restore on an older macOS version first, then
-                                            upgrade to Sequoia afterward.</li>
-                                        <li><strong>Network Drive Access:</strong> If your backup is on a network drive
-                                            and WiFi is unavailable during the process, connect via Ethernet cable.</li>
-                                        <li><strong>Kernel Panics:</strong> If you experience crashes during
-                                            restoration, ensure you're using the correct method for your macOS version
-                                            and that root patches are properly handled.</li>
-                                        <li><strong>Restoration Issues:</strong> If the restoration process fails,
-                                            ensure root patches are completely reverted before attempting again.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Useful Resources Section -->
-                <div class="row justify-content-center mb-5" id="useful-resources">
-                    <div class="col-lg-10">
-                        <h2 class="text-center">Useful Resources</h2>
-                        <div class="content-block content-block--grey">
-                            <div class="guide-card" id="apple-resources">
-                                <h3>Links to important Apple Resources</h3>
-                                <p>Direct links to official Apple services and support pages that you might find useful, as through my Online Support and assistance I have noticed information, resources and functionality are not always as readily available and accessible.</p>
-                                <p>These are particularly useful for new users to the Apple Ecosystem and macOS operating system, to understand and manage your Apple ID, iCloud services and Time Machine Backups.</p>
-                                <ul class="service-list">
-                                    <li>
-                                        <strong><a href="https://www.icloud.com/" target="_blank" rel="noopener noreferrer">Apple iCloud Dashboard - Browser Interface Login</a></strong>
-                                        <p class="mb-0">iCloud browser interface access provides functionality to understand your synced resources between devices from a central management interface. 
-                                            The web version of iCloud provides functionality and visibility pertinent and your personal data synced between devices.<strong> Link (https://www.icloud.com/)</strong></p>
-                                    </li>
-                                    <li>
-                                        <strong><a href="https://appleid.apple.com/" target="_blank" rel="noopener noreferrer">Manage Your Apple ID - Browser Interface Login</a></strong>
-                                        <p class="mb-0">Manage your Apple ID account details, security settings, payment information, and see which devices are signed in as well as App Store purchases and other features. 
-                                            Very useful for general Apple ID management.<strong> Link (https://appleid.apple.com/)</strong></p>
-                                    </li>
-                                    <li>
-                                        <strong><a href="https://support.apple.com/en-gb/104984" target="_blank" rel="noopener noreferrer">Time Machine Offical Apple Guide</a></strong>
-                                        <p class="mb-0">Time Machine is the best and primary backup functionality available to you for your Mac. It is built on server-grade snapshotting capabilities that allow you to
-                                            not only backup your entire installation but also access files directly from snapshots taken at specific points in time. It is by far one if not the most useful functionality macOS provides for users. 
-                                            <strong> Link (https://support.apple.com/en-gb/104984)</strong></p>
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <strong><a href="https://support.apple.com/en-gb/120758" target="_blank" rel="noopener noreferrer">Apple Password Manager Guide</a></strong>
-                                        <p class="mb-0">Apple's introduction of Password Manager application on macOS Sequoia reduces dependency on 3rd Party Cloud Password Manager solutions and it provides the ability to safely Store
-                                            your authentication details locally with the ability to sync passwords between devices and iCloud storage through your iCloud account. Very powerful resource and functionality for personal account safety and credentials management. 
-                                            <strong> Link (https://support.apple.com/en-gb/120758)</strong></p>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="guide-card" id="useful-apps">
-                                <h3>Useful 3rd Party Applications</h3>
-                                <p>A curated list of very useful, tried and tested third-party applications that can enhance your macOS experience. These are applications I don't personally live without on my own macOS system.</p>
-                                <ul class="service-list">
-                                    <li>
-                                        <strong><a href="https://freemacsoft.net/appcleaner/" target="_blank" rel="noopener noreferrer">AppCleaner</a></strong>
-                                        <p class="mb-0">A little free-soft program which might have escaped most users. This program called AppCleaner has the ability to find and delete not just macOS applications themselves, but orphaned and associated modules, libraries and files
-                                            associated with the application that are left behind after deletion. This is particularly useful for keeping your system clean and free of unnecessary files. One of a kind application. <strong> Link (https://freemacsoft.net/appcleaner/)</strong>
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <strong><a href="https://daisydiskapp.com/" target="_blank" rel="noopener noreferrer">Daisy Disk</a></strong>
-                                        <p class="mb-0">There is alot to be said of Daisy Disk, simple yet extremely powerful this application provides the ability to fully scan and graphically provide direct information and Finder access to the entire contents of your internal drive and installation; Files, folders, applications, system modules, Time Machine cache, and the list goes on.
-                                            It is the most comprehensive full installation files and internal storage management solution that transparently shows you exactly what is not only stored on your drive, but also your external drives, and cloud storage accounts (eg. Google Drive, Dropbox etc.). Indispensable and very powerful.<strong> Link (https://daisydiskapp.com/)</strong>
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <strong><a href="https://www.videolan.org/vlc/download-macosx.html" target="_blank" rel="noopener noreferrer">VLC Media Player</a></strong>
-                                        <p class="mb-0">A free and open-source cross-platform multimedia player that plays most multimedia files as well as DVDs, Audio CDs, VCDs, and various streaming protocols. It is the most widely used feature rich and universal video player in the world.
-                                            <strong> Link (https://www.videolan.org/vlc/download-macosx.html)</strong>
-                                        </p>
-                                    </li>
-                                    <li>
-                                        <strong><a href="https://etrecheck.com/en/welcome.html" target="_blank" rel="noopener noreferrer">EtreCheck Pro</a></strong>
-                                        <p class="mb-0">EtreCheck Pro is the de-facto fully comprehensive 3rd party macOS full system auditing and health check tool. This application is widely used throughout the Apple enthusiasts and power users community
-                                            to fully diagnose, troubleshoot and audit the entire macOS system which also includes hardware. The tool functionalities are too broad to briefly summerise, if you are in need of a full overview of your system this is it. <strong>Link (https://etrecheck.com/en/welcome.html)</strong></p>
-                                    </li>
-                                    <li>
-                                        <strong><a href="https://www.obdev.at/products/littlesnitch/index.html" target="_blank" rel="noopener noreferrer">Little Snitch</a></strong>
-                                        <p class="mb-0">A comprehensive macOS only networking tool with broad capabilities for enahnced privacy and security focused systems. For advanced/expert users only, as a personal favourite recommendation.<strong> Link (https://www.obdev.at/products/littlesnitch/index.html)</strong></p>
-                                    </li>
-                                    <li>
-                                        <strong><a href="https://theunarchiver.com/" target="_blank" rel="noopener noreferrer">The Unarchiver</a></strong>
-                                        <p class="mb-0">A more capable free replacement for the built-in Archive Utility on macOS. It can handle a wider variety of archive formats like RAR, 7z, Tar, and more. <strong>Link (https://theunarchiver.com/)</strong></p>
-                                    </li>
-                                    <li>
-                                        <strong><a href="https://www.corecode.io/macupdater/" target="_blank" rel="noopener noreferrer">MacUpdater</a></strong>
-                                        <p class="mb-0">A free and comprehensive macOS application with the sole purpose of keeping all your applications up to date. It transparently shows you which installed 3rd party applications are out of date, which version is current and the latest, and also assists with all 3rd party application updates and upgrades. <strong>Link (https://www.corecode.io/macupdater/)</strong></p>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- About Me Section -->
-                <div class="row justify-content-center mb-5" id="about-me">
-                    <div class="col-lg-10">
-                        <h2 class="text-center">About Me</h2>
-                        <div class="content-block content-block--green">
-                            <div class="guide-card">
-                                <p>As an Apple ACiT & ACMT Certified Technician, I'm passionate about custom-building iMacs and it's a professional hobby. I think iMacs are superb, elegant devices that, when properly maintained and upgraded, can unlock incredible performance with the latest operating systems.</p>
-                                <p>That’s why I perform a full internal service on every machine: a deep clean of the cooling system, new thermal paste, and crucial upgrades to new high-speed SSDs and RAM.</p>
-                                <p>Whether you have bought a custom build or just have a question about Macs in general, feel free to reach out—I'm always happy to consult.</p>
-                                
-                                <h5 class="mt-4" id="services">Other services I provide:</h5>
-                                <ul class="service-list">
-                                    <li><strong>Upgrade Your Existing iMac:</strong> I offer a service to upgrade pre-owned 27" and 21.5" iMacs (Late 2012 - 2019) for a standard 2 hour labour fee plus components/parts costs and postage (2 way). Please message me to discuss the procedure and pricing. Work involved and transaction carried on eBay.</li>
-                                    <li>
-                                        <strong>Remote Support:</strong> It is my pleasure to offer general support via eBay messaging if you have any questions about your custom iMac, general enquiries or if you seek advice. For more in depth IT related work, issues or if you just need an expert’s support, I provide Remote Support assistance <strong>at an hourly rate.</strong> This service includes but is not limited to:
-                                        <ul class="mt-3">
-                                            <li>IT Consultation</li>
-                                            <li>Applications Support</li>
-                                            <li>Backup and Restore Assistance (macOS only)</li>
-                                            <li>Error Troubleshooting</li>
-                                            <li>Online Security Hardening and Advice (2 Factor Authentication Setup, Password Manager Setup, Browser Security Settings etc.)</li>
-                                            <li>iCloud Overview and Setup</li>
+                                    <!-- Important Warnings Section -->
+                                    <div class="alert-custom alert-warning-custom mb-4" id="restore-warnings">
+                                        <h5 class="mt-0">⚠️ Important Information Before Restoring</h5>
+                                        <ul class="mb-0">
+                                            <li><strong>Root Patches Impact:</strong> OCLP root patches can interfere
+                                                with Time
+                                                Machine restoration and may cause kernel panics. Please follow the below
+                                                steps accordingly for a successful Time Machine restoration.</li>
+                                            <li><strong>System Requirements:</strong> Full restoration is only supported
+                                                on
+                                                Monterey and newer. Big Sur does not support snapshot reversion.</li>
+                                            <li><strong>Network Drives:</strong> If your backup is on a network drive,
+                                                ensure
+                                                Ethernet connectivity as WiFi will be unavailable during the restoration
+                                                process.</li>
                                         </ul>
-                                        <p class="mt-3"><em>Credentials available upon request, particularly LinkedIn account and work experience within the field of IT.</em></p>
-                                    </li>
-                                </ul>
-                            </div>
+                                    </div>
 
-                            <!-- Image Gallery -->
-                            <div class="image-gallery mt-5" id="gallery">
-                                <div class="row g-4">
-                                    <div class="col-md-6">
-                                        <img src="assets/images/imac1.jpg" alt="Custom built iMac 1" class="img-fluid gallery-image">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <img src="assets/images/imac2.jpg" alt="Custom built iMac 2" class="img-fluid gallery-image">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <img src="assets/images/imac3.jpg" alt="Custom built iMac 3" class="img-fluid gallery-image">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <img src="assets/images/imac4.jpg" alt="Custom built iMac 4" class="img-fluid gallery-image">
+                                    <div id="restore-methods">
+                                        <div class="guide-card">
+                                            <div class="step-number">Process</div>
+                                            <h3>Complete Time Machine Restoration</h3>
+                                            <p>This method provides complete and safe system restoration, restoring
+                                                everything exactly as
+                                                it was, including all files and system configurations. To be used if
+                                                migrating from one Mac to another Mac, or for simply restoring a current
+                                                backup from your Time Machine to your Mac.</p>
+
+                                            <div class="alert-custom alert-info-custom mb-3">
+                                                <h5 class="mt-0">📋 Requirements</h5>
+                                                <p class="mb-3">Your Time Machine Backup Drive (must have) and
+                                                    recommended use of wired keyboard and mouse for the procedure.</p>
+                                                <p class="mb-3">Requires macOS Monterey or newer. Your Mac will
+                                                    temporarily run
+                                                    slower with reduced functionality during the process of temporarily
+                                                    remove OLCP patches from your system.</p>
+                                                <p class="mb-0"><strong>DO NOT</strong> restore the backup before
+                                                    following the below steps. Restoring from a Time Machine Backup
+                                                    without first removing OLCP patches will render your restoration on
+                                                    your machine unusable.
+                                                    Time Machine external backup drives are never affected themselves by
+                                                    failed Migration Assistant restorations as they are immutable
+                                                    backups.</p>
+                                                <p class="mb-0 mt-3"><strong>Important Note on Apple Sillicon
+                                                        Compatibility:</strong> Direct Mac-to-Mac Migration Assistant
+                                                    restorations are generally not backward compatible when moving from
+                                                    Apple Silicon Macs to Intel-based Macs. This is due to architectural
+                                                    differences between Apple Silicon and Intel architectures, as
+                                                    applications installed on a Sillicon based Mac are not Intel
+                                                    compatible.</p>
+                                            </div>
+
+                                            <h5 class="mt-4">Steps:</h5>
+                                            <ol class="fs-6">
+                                                <li class="mb-3"><strong>Initial Setup:</strong> Please make sure you
+                                                    have your Time Machine backup drive available and ready to plug in
+                                                    for restoration.</li>
+                                                <li class="mb-3"><strong> Remove Root Patches from System:</strong> Open
+                                                    the Open Core Legacy Patcher application
+                                                    and navigate to "Post-Install Patch" option. Click to
+                                                    revert/uninstall the root patches. This completely removes all OCLP
+                                                    modifications from the system.</li>
+                                                <li class="mb-3"><strong> Mandatory Restart:</strong> Restart your iMac
+                                                    to ensure the root
+                                                    patch removal takes full effect.
+                                                </li>
+                                                <div class="alert-custom alert-warning-custom mt-3 mb-3">
+                                                    <p class="mb-0"><strong> Expected Behavior:</strong> Your Mac will
+                                                        feel slow due to lack of OLCP graphics drivers, and WiFi will be
+                                                        unavailable. This is normal and expected. The sign of successful
+                                                        removal of OLCP Patches
+                                                        will be indicated by the white screen background, as gaphics
+                                                        acceleration drivers are temporarily removed.</p>
+                                                </div>
+                                                <li class="mb-3"><strong> Use Migration Assistant Only After
+                                                        Restart:</strong> Once logged
+                                                    back in after the restart, launch Migration Assistant from
+                                                    System<strong> Settings > General > Transfer or Reset > Open
+                                                        Migration Assistant </strong> and proceed with the
+                                                    complete restoration process, if your Time Machine Backup drive is
+                                                    connected. Do not attempt to use Migration Assistant
+                                                    before completing the restart in <strong>Step 3, and successfully
+                                                        removing OLCP patches from your system.</strong></li>
+                                                <li class="mb-3"><strong> Reinstall Root Patches:</strong> After
+                                                    restoration is complete,
+                                                    reopen the OCLP application and reinstall the root patches to
+                                                    restore full
+                                                    functionality via Post-Install Root Patches functionality.</li>
+                                                <li class="mb-3"><strong> Final Restart:</strong> Restart once more to
+                                                    complete the process
+                                                    with full OCLP functionality restored. Apply Post-Install Root
+                                                    Patches a second time if WiFi is avaliable, but if graphics
+                                                    acceleration is not fully restored, as Open Core Legacy Patcher will
+                                                    find, download and install the appropriate
+                                                    graphics drivers for your system whilst on WiFi.</li>
+                                                <!-- Migration Assistant Image -->
+                                                <div class="text-center my-4">
+                                                    <div class="row g-4 mb-4">
+                                                        <div class="col-md-6">
+                                                            <img src="assets/images/migration-assistant.webp"
+                                                                alt="Migration Assistant Start"
+                                                                class="img-fluid rounded border gallery-image"
+                                                                style="max-width: 100%; height: auto;">
+                                                            <small class="text-muted d-block mt-2"><em>Initial Migration
+                                                                    Assistant screen.</em></small>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <img src="assets/images/migration-assistant-2.jpg"
+                                                                alt="Migration Assistant Restore from Time Machine"
+                                                                class="img-fluid rounded border gallery-image"
+                                                                style="max-width: 100%; height: auto;">
+                                                            <small class="text-muted d-block mt-2"><em>Select to restore
+                                                                    from a Time Machine backup.</em></small>
+                                                        </div>
+                                                    </div>
+                                                    <img src="assets/images/time-machine-restore.jpg"
+                                                        alt="Migration Assistant Transfer Options"
+                                                        class="img-fluid rounded border gallery-image"
+                                                        style="max-width: 100%; height: auto;">
+                                                    <small class="text-muted d-block mt-2"><em>Migration Assistant
+                                                            showing transfer options
+                                                            during the restoration process</em></small>
+                                                </div>
+                                                </li>
+                                            </ol>
+                                            <p class="mt-3"><em>This method provides a complete and safe restoration,
+                                                    but requires temporary
+                                                    removal and reinstallation of Open Core root patches, which include
+                                                    removing graphics acceleration and WiFi functionalities.</em></p>
+                                        </div>
+
+                                        <div class="guide-card">
+                                            <div class="step-number">Troubleshooting</div>
+                                            <h3>Common Issues and Solutions</h3>
+                                            <ul class="fs-6">
+                                                <li><strong>Sequoia Restore Loops:</strong> If you encounter "Migration
+                                                    Finished" loops on Sequoia, restore on an older macOS version first,
+                                                    then
+                                                    upgrade to Sequoia afterward.</li>
+                                                <li><strong>Network Drive Access:</strong> If your backup is on a
+                                                    network drive
+                                                    and WiFi is unavailable during the process, connect via Ethernet
+                                                    cable.</li>
+                                                <li><strong>Kernel Panics:</strong> If you experience crashes during
+                                                    restoration, ensure you're using the correct method for your macOS
+                                                    version
+                                                    and that root patches are properly handled.</li>
+                                                <li><strong>Restoration Issues:</strong> If the restoration process
+                                                    fails,
+                                                    ensure root patches are completely reverted before attempting again.
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
 
-            </div>
+                        <!-- Useful Resources Section -->
+                        <div class="row justify-content-center mb-5" id="useful-resources">
+                            <div class="col-lg-10">
+                                <h2 class="text-center">Useful Resources</h2>
+                                <div class="content-block content-block--grey">
+                                    <div class="guide-card" id="apple-resources">
+                                        <h3>Links to important Apple Resources</h3>
+                                        <p>Direct links to official Apple services and support pages that you might find
+                                            useful, as through my Online Support and assistance I have noticed
+                                            information, resources and functionality are not always as readily available
+                                            and accessible.</p>
+                                        <p>These are particularly useful for new users to the Apple Ecosystem and macOS
+                                            operating system, to understand and manage your Apple ID, iCloud services
+                                            and Time Machine Backups.</p>
+                                        <ul class="service-list">
+                                            <li>
+                                                <strong><a href="https://www.icloud.com/" target="_blank"
+                                                        rel="noopener noreferrer">Apple iCloud Dashboard - Browser
+                                                        Interface Login</a></strong>
+                                                <p class="mb-0">iCloud browser interface access provides functionality
+                                                    to understand your synced resources between devices from a central
+                                                    management interface.
+                                                    The web version of iCloud provides functionality and visibility
+                                                    pertinent and your personal data synced between devices.<strong>
+                                                        Link (https://www.icloud.com/)</strong></p>
+                                            </li>
+                                            <li>
+                                                <strong><a href="https://appleid.apple.com/" target="_blank"
+                                                        rel="noopener noreferrer">Manage Your Apple ID - Browser
+                                                        Interface Login</a></strong>
+                                                <p class="mb-0">Manage your Apple ID account details, security settings,
+                                                    payment information, and see which devices are signed in as well as
+                                                    App Store purchases and other features.
+                                                    Very useful for general Apple ID management.<strong> Link
+                                                        (https://appleid.apple.com/)</strong></p>
+                                            </li>
+                                            <li>
+                                                <strong><a href="https://support.apple.com/en-gb/104984" target="_blank"
+                                                        rel="noopener noreferrer">Time Machine Offical Apple
+                                                        Guide</a></strong>
+                                                <p class="mb-0">Time Machine is the best and primary backup
+                                                    functionality available to you for your Mac. It is built on
+                                                    server-grade snapshotting capabilities that allow you to
+                                                    not only backup your entire installation but also access files
+                                                    directly from snapshots taken at specific points in time. It is by
+                                                    far one if not the most useful functionality macOS provides for
+                                                    users.
+                                                    <strong> Link (https://support.apple.com/en-gb/104984)</strong>
+                                                </p>
+                                                </p>
+                                            <li>
+                                                <strong><a href="https://support.apple.com/en-gb/120758" target="_blank"
+                                                        rel="noopener noreferrer">Apple Password Manager
+                                                        Guide</a></strong>
+                                                <p class="mb-0">Apple's introduction of Password Manager application on
+                                                    macOS Sequoia reduces dependency on 3rd Party Cloud Password Manager
+                                                    solutions and it provides the ability to safely Store
+                                                    your authentication details locally with the ability to sync
+                                                    passwords between devices and iCloud storage through your iCloud
+                                                    account. Very powerful resource and functionality for personal
+                                                    account safety and credentials management.
+                                                    <strong> Link (https://support.apple.com/en-gb/120758)</strong>
+                                                </p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="guide-card" id="useful-apps">
+                                        <h3>Useful 3rd Party Applications</h3>
+                                        <p>A curated list of very useful, tried and tested third-party applications that
+                                            can enhance your macOS experience. These are applications I don't personally
+                                            live without on my own macOS system.</p>
+                                        <ul class="service-list">
+                                            <li>
+                                                <strong><a href="https://freemacsoft.net/appcleaner/" target="_blank"
+                                                        rel="noopener noreferrer">AppCleaner</a></strong>
+                                                <p class="mb-0">A little free-soft program which might have escaped most
+                                                    users. This program called AppCleaner has the ability to find and
+                                                    delete not just macOS applications themselves, but orphaned and
+                                                    associated modules, libraries and files
+                                                    associated with the application that are left behind after deletion.
+                                                    This is particularly useful for keeping your system clean and free
+                                                    of unnecessary files. One of a kind application. <strong> Link
+                                                        (https://freemacsoft.net/appcleaner/)</strong>
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <strong><a href="https://daisydiskapp.com/" target="_blank"
+                                                        rel="noopener noreferrer">Daisy Disk</a></strong>
+                                                <p class="mb-0">There is alot to be said of Daisy Disk, simple yet
+                                                    extremely powerful this application provides the ability to fully
+                                                    scan and graphically provide direct information and Finder access to
+                                                    the entire contents of your internal drive and installation; Files,
+                                                    folders, applications, system modules, Time Machine cache, and the
+                                                    list goes on.
+                                                    It is the most comprehensive full installation files and internal
+                                                    storage management solution that transparently shows you exactly
+                                                    what is not only stored on your drive, but also your external
+                                                    drives, and cloud storage accounts (eg. Google Drive, Dropbox etc.).
+                                                    Indispensable and very powerful.<strong> Link
+                                                        (https://daisydiskapp.com/)</strong>
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <strong><a href="https://www.videolan.org/vlc/download-macosx.html"
+                                                        target="_blank" rel="noopener noreferrer">VLC Media
+                                                        Player</a></strong>
+                                                <p class="mb-0">A free and open-source cross-platform multimedia player
+                                                    that plays most multimedia files as well as DVDs, Audio CDs, VCDs,
+                                                    and various streaming protocols. It is the most widely used feature
+                                                    rich and universal video player in the world.
+                                                    <strong> Link
+                                                        (https://www.videolan.org/vlc/download-macosx.html)</strong>
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <strong><a href="https://etrecheck.com/en/welcome.html" target="_blank"
+                                                        rel="noopener noreferrer">EtreCheck Pro</a></strong>
+                                                <p class="mb-0">EtreCheck Pro is the de-facto fully comprehensive 3rd
+                                                    party macOS full system auditing and health check tool. This
+                                                    application is widely used throughout the Apple enthusiasts and
+                                                    power users community
+                                                    to fully diagnose, troubleshoot and audit the entire macOS system
+                                                    which also includes hardware. The tool functionalities are too broad
+                                                    to briefly summerise, if you are in need of a full overview of your
+                                                    system this is it. <strong>Link
+                                                        (https://etrecheck.com/en/welcome.html)</strong></p>
+                                            </li>
+                                            <li>
+                                                <strong><a href="https://www.obdev.at/products/littlesnitch/index.html"
+                                                        target="_blank" rel="noopener noreferrer">Little
+                                                        Snitch</a></strong>
+                                                <p class="mb-0">A comprehensive macOS only networking tool with broad
+                                                    capabilities for enahnced privacy and security focused systems. For
+                                                    advanced/expert users only, as a personal favourite
+                                                    recommendation.<strong> Link
+                                                        (https://www.obdev.at/products/littlesnitch/index.html)</strong>
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <strong><a href="https://theunarchiver.com/" target="_blank"
+                                                        rel="noopener noreferrer">The Unarchiver</a></strong>
+                                                <p class="mb-0">A more capable free replacement for the built-in Archive
+                                                    Utility on macOS. It can handle a wider variety of archive formats
+                                                    like RAR, 7z, Tar, and more. <strong>Link
+                                                        (https://theunarchiver.com/)</strong></p>
+                                            </li>
+                                            <li>
+                                                <strong><a href="https://www.corecode.io/macupdater/" target="_blank"
+                                                        rel="noopener noreferrer">MacUpdater</a></strong>
+                                                <p class="mb-0">A free and comprehensive macOS application with the sole
+                                                    purpose of keeping all your applications up to date. It
+                                                    transparently shows you which installed 3rd party applications are
+                                                    out of date, which version is current and the latest, and also
+                                                    assists with all 3rd party application updates and upgrades.
+                                                    <strong>Link (https://www.corecode.io/macupdater/)</strong></p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- About Me Section -->
+                        <div class="row justify-content-center mb-5" id="about-me">
+                            <div class="col-lg-10">
+                                <h2 class="text-center">About Me</h2>
+                                <div class="content-block content-block--green">
+                                    <div class="guide-card">
+                                        <p>As an Apple ACiT & ACMT Certified Technician, I'm passionate about
+                                            custom-building iMacs and it's a professional hobby. I think iMacs are
+                                            superb, elegant devices that, when properly maintained and upgraded, can
+                                            unlock incredible performance with the latest operating systems.</p>
+                                        <p>That’s why I perform a full internal service on every machine: a deep clean
+                                            of the cooling system, new thermal paste, and crucial upgrades to new
+                                            high-speed SSDs and RAM.</p>
+                                        <p>Whether you have bought a custom build or just have a question about Macs in
+                                            general, feel free to reach out—I'm always happy to consult.</p>
+
+                                        <h5 class="mt-4" id="services">Other services I provide:</h5>
+                                        <ul class="service-list">
+                                            <li><strong>Upgrade Your Existing iMac:</strong> I offer a service to
+                                                upgrade pre-owned 27" and 21.5" iMacs (Late 2012 - 2019) for a standard
+                                                2 hour labour fee plus components/parts costs and postage (2 way).
+                                                Please message me to discuss the procedure and pricing. Work involved
+                                                and transaction carried on eBay.</li>
+                                            <li>
+                                                <strong>Remote Support:</strong> It is my pleasure to offer general
+                                                support via eBay messaging if you have any questions about your custom
+                                                iMac, general enquiries or if you seek advice. For more in depth IT
+                                                related work, issues or if you just need an expert’s support, I provide
+                                                Remote Support assistance <strong>at an hourly rate.</strong> This
+                                                service includes but is not limited to:
+                                                <ul class="mt-3">
+                                                    <li>IT Consultation</li>
+                                                    <li>Applications Support</li>
+                                                    <li>Backup and Restore Assistance (macOS only)</li>
+                                                    <li>Error Troubleshooting</li>
+                                                    <li>Online Security Hardening and Advice (2 Factor Authentication
+                                                        Setup, Password Manager Setup, Browser Security Settings etc.)
+                                                    </li>
+                                                    <li>iCloud Overview and Setup</li>
+                                                </ul>
+                                                <p class="mt-3"><em>Credentials available upon request, particularly
+                                                        LinkedIn account and work experience within the field of
+                                                        IT.</em></p>
+                                            </li>
+                                        </ul>
+                                    </div>
+
+                                    <!-- Image Gallery -->
+                                    <div class="image-gallery mt-5" id="gallery">
+                                        <div class="row g-4">
+                                            <div class="col-md-6">
+                                                <img src="assets/images/imac1.jpg" alt="Custom built iMac 1"
+                                                    class="img-fluid gallery-image">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <img src="assets/images/imac2.jpg" alt="Custom built iMac 2"
+                                                    class="img-fluid gallery-image">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <img src="assets/images/imac3.jpg" alt="Custom built iMac 3"
+                                                    class="img-fluid gallery-image">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <img src="assets/images/imac4.jpg" alt="Custom built iMac 4"
+                                                    class="img-fluid gallery-image">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
     </main>
 
     <!-- Footer -->
@@ -1026,7 +1367,8 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="tahoeStatusModalLabel">
-                        <img src="assets/images/tahoe-logo.jpg" alt="macOS Tahoe Logo" class="modal-title-logo img-fluid">
+                        <img src="assets/images/tahoe-logo.jpg" alt="macOS Tahoe Logo"
+                            class="modal-title-logo img-fluid">
                         macOS Tahoe 26 Development Status
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -1035,19 +1377,26 @@
                     <img src="assets/images/sequoia-tahoe.jpg" alt="macOS Sequoia and macOS Tahoe"
                         class="img-fluid modal-image">
                     <div class="alert-custom alert-warning-custom mb-4">
-                        <p class="mb-0"><strong>Please DO NOT UPGRADE your installation to macOS Tahoe yet, currently doing so will break your installation. macOS Tahoe 26 is not yet supported on OLCP enabled Mac's, even through it appears as an optional upgrade in your System Settings.</strong></p>
+                        <p class="mb-0"><strong>Please DO NOT UPGRADE your installation to macOS Tahoe yet, currently
+                                doing so will break your installation. macOS Tahoe 26 is not yet supported on OLCP
+                                enabled Mac's, even through it appears as an optional upgrade in your System
+                                Settings.</strong></p>
                     </div>
-                    <p><strong>macOS Tahoe</strong> is currently still in active development by the Open Core Legacy Patcher team. It will
-                        become available for all custom iMac builds early next year (Projected Goal - Spring 2026), once the OS has
+                    <p><strong>macOS Tahoe</strong> is currently still in active development by the Open Core Legacy
+                        Patcher team. It will
+                        become available for all custom iMac builds early next year (Projected Goal - Spring 2026), once
+                        the OS has
                         been fully tested and is ready for a stable release and upgrade for all Mac devices.</p>
                     <p>I am personally monitoring its development to ensure a smooth and stable upgrade process for
-                        everyone. All users will be kept informed here once macOS Tahoe has been fully tested and ready to upgrade here on the Update and Usage Guide.</p>
-                    <p><strong>The responsability</strong> of an early (failed) upgrade is entirely up to you, as the Owner of your system. If unsure, or if you have any questions please reach out to me first.</p>
+                        everyone. All users will be kept informed here once macOS Tahoe has been fully tested and ready
+                        to upgrade here on the Update and Usage Guide.</p>
+                    <p><strong>The responsability</strong> of an early (failed) upgrade is entirely up to you, as the
+                        Owner of your system. If unsure, or if you have any questions please reach out to me first.</p>
                     <hr>
                     <p class="mb-0">For now, <strong>macOS Sequoia 15</strong> is the current stable running OS release.
                         It will continue to receive rolling Feature and Security Updates from Apple for the next 6
                         years, ensuring your iMac remains secure and up-to-date.</p>
-                        
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary-apple" data-bs-dismiss="modal">Close</button>

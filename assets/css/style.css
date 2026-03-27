@@ -411,6 +411,11 @@
             border-radius: var(--border-radius-large);
             padding: 1.5rem;
         }
+
+        .alert-custom h5 {
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
         
         .alert-warning-custom { /* NEW YELLOW STYLE */
             background-color: #fffbeb;
@@ -455,6 +460,13 @@
         }
         
         /* --- Guide Images --- */
+        .framed-image {
+            padding: 1rem;
+            background-color: var(--color-background-main);
+            border: 1px solid var(--color-border-subtle) !important;
+            border-radius: var(--border-radius-small) !important;
+        }
+
         .guide-card img, .alert-custom img {
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
