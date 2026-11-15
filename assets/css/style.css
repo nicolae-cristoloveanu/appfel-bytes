@@ -151,7 +151,6 @@
             background-color: rgba(255, 255, 255, 0.8) !important;
             backdrop-filter: saturate(180%) blur(20px);
             -webkit-backdrop-filter: saturate(180%) blur(20px);
-            border-bottom: 0.5px solid var(--color-border-subtle);
         }
 
         .navbar-brand {
@@ -180,7 +179,6 @@
             width: 280px;
             height: 100vh;
             background-color: var(--color-background-main);
-            border-right: 1px solid var(--color-border-subtle);
             z-index: 1000;
             overflow-y: auto;
             padding-top: 80px; /* Account for main navbar */
@@ -195,7 +193,6 @@
             font-weight: 600;
             font-size: 1.1rem;
             color: var(--color-text-primary);
-            border-bottom: 1px solid var(--color-border-subtle);
             margin-bottom: 1rem;
         }
 
@@ -217,19 +214,16 @@
             text-decoration: none;
             font-weight: 500;
             transition: all 0.2s ease;
-            border-left: 3px solid transparent;
         }
 
         .side-nav-link:hover {
             color: var(--color-text-primary);
             background-color: var(--color-background-offwhite);
-            border-left-color: var(--color-accent-green);
         }
 
         .side-nav-link.active {
             color: var(--color-accent-green);
             background-color: rgba(88, 166, 92, 0.1);
-            border-left-color: var(--color-accent-green);
             font-weight: 600;
         }
 
@@ -252,19 +246,16 @@
             text-decoration: none;
             font-size: 0.9rem;
             transition: all 0.2s ease;
-            border-left: 2px solid transparent;
         }
 
         .side-nav-sublink:hover {
             color: var(--color-accent-green);
             background-color: rgba(88, 166, 92, 0.05);
-            border-left-color: var(--color-accent-green);
         }
 
         .side-nav-sublink.active {
             color: var(--color-accent-green);
             background-color: rgba(88, 166, 92, 0.1);
-            border-left-color: var(--color-accent-green);
             font-weight: 600;
         }
 
@@ -552,7 +543,6 @@
         }
 
         .modal-footer {
-            border-top: 1px solid var(--color-border-subtle);
             background-color: var(--color-background-offwhite);
             border-bottom-left-radius: var(--border-radius-large);
             border-bottom-right-radius: var(--border-radius-large);
