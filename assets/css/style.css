@@ -333,6 +333,14 @@
             margin-bottom: 1.5rem;
         }
 
+        .troubleshooting-list > li {
+            margin-bottom: 1.25rem;
+        }
+
+        .troubleshooting-list > li:last-child {
+            margin-bottom: 0;
+        }
+
         .guide-card .step-number {
             font-size: 1.5rem;
             font-weight: 700;

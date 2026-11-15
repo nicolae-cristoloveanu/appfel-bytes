@@ -1120,23 +1120,22 @@
                                         <div class="guide-card">
                                             <div class="step-number">Troubleshooting</div>
                                             <h3>Common Issues and Solutions</h3>
-                                            <ul class="fs-6">
-                                                <li><strong>Sequoia Restore Loops:</strong> If you encounter "Migration
-                                                    Finished" loops on Sequoia, restore on an older macOS version first,
-                                                    then
-                                                    upgrade to Sequoia afterward.</li>
+                                            <ul class="fs-6 troubleshooting-list">
+                                                <li><strong>SMC Reset:</strong> An SMC reset refreshes power-management
+                                                    controls and can help resolve power, charging, fan, sleep, and
+                                                    other hardware-management issues. To perform it on an Intel iMac,
+                                                    shut down the Mac, unplug the power cord for 15 seconds, reconnect
+                                                    it, wait 5 seconds, then turn the Mac on.</li>
+                                                <li><strong>NVRAM Reset:</strong> An NVRAM reset clears stored startup
+                                                    and hardware settings, which can help resolve startup-disk, display,
+                                                    sound, and other settings-related issues. A wired keyboard and
+                                                    mouse are mandatory. Shut down the iMac, turn it on, and
+                                                    immediately hold <strong>Option-Command-P-R</strong> for about 20
+                                                    seconds.</li>
                                                 <li><strong>Network Drive Access:</strong> If your backup is on a
                                                     network drive
                                                     and WiFi is unavailable during the process, connect via Ethernet
                                                     cable.</li>
-                                                <li><strong>Kernel Panics:</strong> If you experience crashes during
-                                                    restoration, ensure you're using the correct method for your macOS
-                                                    version
-                                                    and that root patches are properly handled.</li>
-                                                <li><strong>Restoration Issues:</strong> If the restoration process
-                                                    fails,
-                                                    ensure root patches are completely reverted before attempting again.
-                                                </li>
                                             </ul>
                                         </div>
                                     </div>
